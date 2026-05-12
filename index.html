@@ -1561,8 +1561,8 @@
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
     align-items: start;
   }
   .room-mini {
@@ -1607,11 +1607,14 @@
   }
   .room-mini-dot { color: var(--rule); }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1100px) {
+    .rooms-compact-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 760px) {
     .rooms-compact { padding: 80px 24px; }
     .rooms-compact-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   }
-  @media (max-width: 520px) {
+  @media (max-width: 460px) {
     .rooms-compact-grid { grid-template-columns: 1fr; }
   }
 
@@ -1927,6 +1930,20 @@
       </div>
     </button>
 
+    <button type="button" class="room-mini reveal" data-room="room22">
+      <div class="room-mini-img">
+        <img src="images/room20-01.jpg" alt="Room nº22">
+      </div>
+      <div class="room-mini-meta">
+        <div class="room-mini-name">Room <em>nº22</em></div>
+        <div class="room-mini-info">
+          <span>24 m²</span><span class="room-mini-dot">/</span>
+          <span>2 pers.</span><span class="room-mini-dot">/</span>
+          <span>vanaf €195</span>
+        </div>
+      </div>
+    </button>
+
     <button type="button" class="room-mini reveal" data-room="loft">
       <div class="room-mini-img">
         <img src="images/loft-01.jpg" alt="The Loft">
@@ -2171,6 +2188,21 @@
         ['Badkamer', 'Walk-in douche']
       ],
       price: '€185',
+      priceNote: 'per nacht / inclusief btw'
+    },
+    room22: {
+      tag: 'Comfort / Kamer nº22',
+      name: 'Room nº22',
+      sub: 'Kalm olijfgroen met messing details',
+      desc: 'De rustigste kamer aan de achterkant van het huis, in zacht olijfgroen met messing details. Iets ruimer dan haar buren, met een leeshoek bij het raam.',
+      img: 'images/room20-01.jpg',
+      specs: [
+        ['Personen', '2'],
+        ['Bed', 'Queensize 160×200'],
+        ['Oppervlakte', '± 24 m²'],
+        ['Badkamer', 'Bad + douche']
+      ],
+      price: '€195',
       priceNote: 'per nacht / inclusief btw'
     },
     loft: {
