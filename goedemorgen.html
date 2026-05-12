@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Georgie B&B Gent een herenhuis op 5 min van Sint-Pieters</title>
-<meta name="description" content="Georgie is een bed & breakfast in een gerestaureerd herenhuis in Gent, op 5 minuten wandelen van Sint-Pieters. Vier kamers en een familieloft, self check-in, parkeren buiten de LEZ.">
+<title>Goedemorgen, ontbijt bij Carlton Hotel naast de deur — Georgie B&B Gent</title>
+<meta name="description" content="Vers, warm ontbijt à la minute in het restaurant van Carlton Hotel, recht tegenover Georgie. Eieren op uw vraag, glutenvrij en veganistisch mogelijk, ruime uren. Een bewuste keuze, geen compromis.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
@@ -1574,7 +1574,7 @@
   }
   .room-mini:hover { transform: translateY(-3px); }
   .room-mini-img {
-    aspect-ratio: 1200 / 978;
+    aspect-ratio: 4/3;
     overflow: hidden;
     background: var(--bordeaux);
     margin-bottom: 16px;
@@ -1707,21 +1707,150 @@
   @media (max-width: 600px) {
     .practical-v2-grid { grid-template-columns: 1fr; }
   }
+
+  /* =========================================================
+     FAQ-PAGE: page hero + faq list
+     ========================================================= */
+  .page-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 360px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--cream);
+  }
+  .page-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(20, 12, 14, 0.55) 0%,
+      rgba(20, 12, 14, 0.35) 50%,
+      rgba(20, 12, 14, 0.7) 100%
+    );
+  }
+  .page-hero-content {
+    position: relative;
+    max-width: 880px;
+    padding: 0 40px 90px;
+    text-align: center;
+  }
+  .page-hero-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.75;
+    margin-bottom: 24px;
+  }
+  h1.page-hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+  h1.page-hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .page-hero-lead {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: 0.92;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* FAQ list (standalone page) */
+  .faq {
+    background: var(--warm-white);
+    padding: 110px 40px 130px;
+  }
+  .faq-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .faq-list details {
+    border-bottom: 1px solid var(--rule);
+    padding: 26px 0;
+  }
+  .faq-list details:first-child {
+    border-top: 1px solid var(--rule);
+  }
+  .faq-list summary {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--black);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    line-height: 1.3;
+  }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: '+';
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--bordeaux);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .faq-list details[open] summary::after {
+    content: '\2212'; /* unicode minus */
+    transform: rotate(0deg);
+  }
+  .faq-list details p {
+    margin-top: 14px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    max-width: 720px;
+  }
+  .faq-list details p a {
+    color: var(--bordeaux);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero-content { padding: 0 24px 60px; }
+    .faq { padding: 70px 24px 90px; }
+    .faq-list summary { font-size: 1.15rem; }
+  }
 </style>
 </head>
 <body>
 
 <!-- ============== NAV ============== -->
 <nav id="mainNav">
-  <a href="#" class="brand">
+  <a href="index.html" class="brand">
     <span class="brand-name">Georgie</span>
     <span class="brand-sub">bed &amp; breakfast</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#kamers">Kamers</a></li>
-    <li><a href="#huis">Het huis</a></li>
-    <li><a href="#praktisch">Praktisch</a></li>
-    <li><a href="#ligging">Ligging</a></li>
+    <li><a href="index.html#kamers">Kamers</a></li>
+    <li><a href="index.html#huis">Het huis</a></li>
+    <li><a href="index.html#praktisch">Praktisch</a></li>
+    <li><a href="index.html#ligging">Ligging</a></li>
     <li><a href="faq.html">FAQ</a></li>
   </ul>
   <div class="lang">
@@ -1731,274 +1860,103 @@
     <span class="lang-sep">/</span>
     <a href="#">en</a>
   </div>
-  <a href="#boek" class="book-button">Reserveer</a>
+  <a href="index.html#boek" class="book-button">Reserveer</a>
 </nav>
 
-<!-- ============== HERO ============== -->
-<section class="hero">
-  <img src="images/inkomhal-01.jpg" alt="Inkomhal van Georgie B&B in Gent" class="hero-image">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Bed & Breakfast Gent, België</div>
-    <h1 class="hero-title">Anno<br><em>1903.</em></h1>
-    <p class="hero-lead">
-      Een gerestaureerd herenhuis met vier kamers en een familieloft. Vijf minuten wandelen van Sint-Pieters, parkeren buiten de LEZ, self check-in op uw eigen tempo.
+<!-- ============== PAGE HERO ============== -->
+<section class="page-hero">
+  <img src="images/ontbijt-buffet.jpg" alt="Ontbijtbuffet in Carlton Hotel met yoghurt, vers fruit en ontbijtgranen" class="page-hero-image">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Ontbijt</div>
+    <h1 class="page-hero-title">Goede<br><em>morgen.</em></h1>
+    <p class="page-hero-lead">
+      Wij hebben bewust geen ontbijtkamer in Georgie. In plaats daarvan loopt u dertig stappen over de straat, naar het restaurant van Carlton Hotel. Vers, warm, à la minute, op een uur dat u zelf kiest.
     </p>
-    <div class="hero-cta">
-      <a href="#boek" class="btn-primary">Beschikbaarheid bekijken</a>
-      <a href="#kamers" class="btn-secondary">bekijk de kamers</a>
-    </div>
   </div>
 </section>
 
 
-<!-- ============== BOOKING STRIP ============== -->
-<section class="booking-strip">
-  <div class="booking-strip-inner">
-    <div class="booking-strip-label">
-      <span class="booking-strip-title">Reserveer</span>
-      <span class="booking-strip-sub">direct, geen tussenpersoon</span>
-    </div>
-    <div class="booking-fields">
-      <label class="booking-field">
-        <span class="booking-field-label">Aankomst</span>
-        <input type="date" class="booking-input" id="bkArrival">
-      </label>
-      <label class="booking-field">
-        <span class="booking-field-label">Vertrek</span>
-        <input type="date" class="booking-input" id="bkDeparture">
-      </label>
-      <label class="booking-field">
-        <span class="booking-field-label">Gasten</span>
-        <select class="booking-input">
-          <option>2 volwassenen</option>
-          <option>1 volwassene</option>
-          <option>2 volwassenen + 1 kind</option>
-          <option>2 volwassenen + 2 kinderen</option>
-          <option>3 volwassenen</option>
-          <option>4 volwassenen</option>
-        </select>
-      </label>
-    </div>
-    <div class="booking-strip-cta">
-      <a href="#" class="booking-cta-button">Controleer beschikbaarheid</a>
-    </div>
+<!-- ============== INTRO / DE KEUZE ============== -->
+<section class="intro">
+  <div class="intro-eyebrow">De keuze</div>
+  <h2>Ontbijt <em>bij de buren.</em><br>Een bewuste keuze.</h2>
+  <div class="intro-body">
+    <p>
+      Een goed ontbijt heeft een grote keuken nodig, vroege koks, en personeel dat permanent aanwezig is. Dat past niet in een huis met vijf kamers. En eerlijk: het zou ook niet beter zijn dan wat de mensen recht tegenover ons al jaren elke ochtend doen.
+    </p>
+    <p>
+      Daarom hebben we een afspraak met <em>Carlton Hotel,</em> dertig stappen van onze voordeur. U bent er gast, geen vreemde. Een warm buffet, eieren à la minute, glutenvrij of veganistisch indien u dat aangeeft. U gaat wanneer u wil, in jeans, zonder onverwachte gesprekken aan een gedeelde tafel.
+    </p>
   </div>
 </section>
 
-<!-- ============== USP STRIP ============== -->
+
+<!-- ============== WAT JE KRIJGT ============== -->
 <section class="usps">
   <div class="usp-grid">
     <div class="usp">
       <span class="usp-num">01</span>
-      <h3>Self check-in</h3>
-      <p>U arriveert wanneer het u uitkomt. Code in de mailbox, sleutel klaar, geen wachten aan een receptie.</p>
+      <h3>Warm &amp; koud buffet</h3>
+      <p>Verse sappen, ontbijtgranen, fruit, yoghurt, vleeswaren en kazen. Genoeg om twee keer te beginnen.</p>
     </div>
     <div class="usp">
       <span class="usp-num">02</span>
-      <h3>Altijd bereikbaar</h3>
-      <p>Iemand van ons is 24/7 onmiddellijk bereikbaar. Per WhatsApp, telefoon of mail. Geen voicemail, geen wachtmuziek.</p>
+      <h3>Eieren à la minute</h3>
+      <p>Roerei, gebakken, omelet, gekookt. Met of zonder spek, met champignons of tomaat. Op uw vraag, niet uit een chafing dish.</p>
     </div>
     <div class="usp">
       <span class="usp-num">03</span>
-      <h3>Parkeren buiten de LEZ</h3>
-      <p>Geen LEZ-zorgen, geen registratiekosten voor buitenlandse wagens. Gemakkelijk straatparkeren voor de deur.</p>
+      <h3>Ruime uren</h3>
+      <p>07:00 tot 10:00 doordeweeks. 08:00 tot 11:00 in het weekend. Slaap uit op zaterdag, wij houden uw plaats vrij.</p>
     </div>
     <div class="usp">
       <span class="usp-num">04</span>
-      <h3>5 min van het station</h3>
-      <p>Wandelafstand van Gent-Sint-Pieters. Brussel op 30 minuten, Antwerpen op 50, Brussels Airport op één trein.</p>
+      <h3>Glutenvrij &amp; veganistisch</h3>
+      <p>Geef het door bij de reservatie, geen toeslag. Er zijn altijd opties voor wie iets vermijdt.</p>
     </div>
   </div>
 </section>
 
-<!-- ============== INTRO / HOUSE STORY ============== -->
-<section class="intro" id="huis">
-  <div class="intro-eyebrow">Het huis</div>
-  <h2>Een herenhuis,<br>met respect <em>gerestaureerd.</em></h2>
-  <div class="intro-body">
-    <p>
-      Georgie is een eclectisch herenhuis aan de Koningin Astridlaan in Gent,
-      vlak bij het Citadelpark. We hebben het gerestaureerd met respect voor
-      wat er was: de originele tegelvloer in de gang, de paneeldeuren, de
-      kroonlijsten, de glazen koepel boven de traphal.
-    </p>
-    <p>
-      Daar tussenin: <em>diepe bordeaux muren, fluwelen banken, koperen lampen en een piano in de salon.</em> Geen receptie, geen lift, geen lobby. Wel een huis dat aanvoelt zoals een huis hoort aan te voelen.
-    </p>
-  </div>
-</section>
 
-
-<!-- ============== BIG SINGLE IMAGE ============== -->
-<section class="big-image">
-  <img src="images/living-01.jpg" alt="De eetkamer van Georgie">
-</section>
-
-<!-- ============== ROOMS (compact) ============== -->
-<section class="rooms-compact" id="kamers">
-  <div class="section-header reveal">
-    <div>
-      <div class="section-header-eyebrow">02 / Kamers</div>
-      <h2>Vijf kamers,<br><em>elk met eigen toon.</em></h2>
-    </div>
-    <div class="section-header-right">
-      <p>
-        Vier tweepersoonskamers en een familieloft onder de nok. Klik een kamer aan voor de details.
-      </p>
-      <a href="#boek">alle kamers &amp; beschikbaarheid</a>
-    </div>
-  </div>
-
-  <div class="rooms-compact-grid">
-    <button type="button" class="room-mini reveal" data-room="suite">
-      <div class="room-mini-img">
-        <img src="images/suite-01.jpg" alt="The Suite">
-      </div>
-      <div class="room-mini-meta">
-        <div class="room-mini-name">The <em>Suite</em></div>
-        <div class="room-mini-info">
-          <span>32 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €245</span>
-        </div>
-      </div>
-    </button>
-
-    <button type="button" class="room-mini reveal" data-room="room20">
-      <div class="room-mini-img">
-        <img src="images/room20-01.jpg" alt="Room nº20">
-      </div>
-      <div class="room-mini-meta">
-        <div class="room-mini-name">Room <em>nº20</em></div>
-        <div class="room-mini-info">
-          <span>22 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €185</span>
-        </div>
-      </div>
-    </button>
-
-    <button type="button" class="room-mini reveal" data-room="room21">
-      <div class="room-mini-img">
-        <img src="images/room21-01.jpg" alt="Room nº21">
-      </div>
-      <div class="room-mini-meta">
-        <div class="room-mini-name">Room <em>nº21</em></div>
-        <div class="room-mini-info">
-          <span>22 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €185</span>
-        </div>
-      </div>
-    </button>
-
-    <button type="button" class="room-mini reveal" data-room="loft">
-      <div class="room-mini-img">
-        <img src="images/loft-01.jpg" alt="The Loft">
-      </div>
-      <div class="room-mini-meta">
-        <div class="room-mini-name">The <em>Loft</em></div>
-        <div class="room-mini-info">
-          <span>38 m²</span><span class="room-mini-dot">/</span>
-          <span>2 / 4 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €265</span>
-        </div>
-      </div>
-    </button>
-  </div>
-</section>
-
-<!-- ============== ROOM MODAL ============== -->
-<div class="room-modal" id="roomModal" aria-hidden="true" role="dialog">
-  <div class="room-modal-inner" role="document">
-    <div class="room-modal-image">
-      <button class="room-modal-close" aria-label="Sluiten">&times;</button>
-      <img id="modalImg" src="" alt="">
-    </div>
-    <div class="room-modal-content">
-      <div class="room-modal-tag" id="modalTag"></div>
-      <h3 class="room-modal-name" id="modalName"></h3>
-      <p class="room-modal-sub" id="modalSub"></p>
-      <p class="room-modal-desc" id="modalDesc"></p>
-      <div class="room-modal-specs" id="modalSpecs"></div>
-      <div class="room-modal-footer">
-        <div class="room-modal-price" id="modalPrice"></div>
-        <a href="#boek" class="book-button">Reserveren</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============== PRACTICAL ============== -->
-<section class="practical-v2" id="praktisch">
+<!-- ============== PRAKTISCH ============== -->
+<section class="practical-v2">
   <div class="practical-v2-inner">
     <div class="practical-v2-header reveal">
-      <div class="section-header-eyebrow practical-eyebrow">03 / Praktisch</div>
-      <h2 class="practical-v2-title">Onthaal, <em>op uw tempo.</em></h2>
+      <div class="section-header-eyebrow practical-eyebrow">Hoe het werkt</div>
+      <h2 class="practical-v2-title">Eenvoudig, <em>zoals het hoort.</em></h2>
     </div>
 
     <div class="practical-v2-grid reveal">
       <div class="practical-v2-item">
         <div class="practical-v2-num">01</div>
-        <h4>Self check-in vanaf 15:00</h4>
-        <p>Code in de mailbox, kamer klaar wanneer u binnenstapt.</p>
+        <h4>Vink het aan bij de boeking</h4>
+        <p>Of stuur ons een berichtje. €18 per persoon per ochtend, op te tellen bij uw factuur of cash ter plaatse.</p>
       </div>
       <div class="practical-v2-item">
         <div class="practical-v2-num">02</div>
-        <h4>24/7 bereikbaar</h4>
-        <p>WhatsApp, telefoon of mail. Iemand antwoordt onmiddellijk.</p>
+        <h4>Wij regelen het met Carlton</h4>
+        <p>U staat op de lijst. Geen reservatie, geen wachtrij, geen uitleg aan de balie.</p>
       </div>
       <div class="practical-v2-item">
         <div class="practical-v2-num">03</div>
-        <h4>Ontbijt naast de deur</h4>
-        <p>In het hotel tegenover ons. <a href="goedemorgen.html">Lees over het ontbijt</a> of vraag het bij de boeking.</p>
+        <h4>Wandel over de straat</h4>
+        <p>Recht tegenover de voordeur. Dertig stappen, ook in pyjama-jeans en een trui.</p>
       </div>
       <div class="practical-v2-item">
         <div class="practical-v2-num">04</div>
-        <h4>Buiten de LEZ</h4>
-        <p>Geen registratie nodig. Straatparkeren rond het huis.</p>
+        <h4>Schuif aan wanneer u wakker bent</h4>
+        <p>Geen vast uur, geen ronde van de waard. U bestelt uw eieren wanneer u zin heeft.</p>
       </div>
       <div class="practical-v2-item">
         <div class="practical-v2-num">05</div>
-        <h4>Check-out tegen 11:00</h4>
-        <p>Sleutel in de kamer. Bagage bewaren mag in de inkomhal.</p>
+        <h4>Glas champagne als u dat wil</h4>
+        <p>Baron Dauvergne Grand Cru, à la carte. Iets te vieren? Vraag erom.</p>
       </div>
       <div class="practical-v2-item practical-v2-cta">
-        <p>Iets wat u zich afvraagt?</p>
-        <a href="faq.html" class="practical-v2-link">lees de FAQ</a>
+        <p>Nog een vraag over ontbijt?</p>
+        <a href="https://wa.me/3290000000" class="practical-v2-link">stuur ons een berichtje</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== LOCATION ============== -->
-<section class="location" id="ligging">
-  <div class="location-grid">
-    <div class="map-container reveal">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0!2d3.7174!3d51.0353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDAyJzA3LjEiTiAzwrA0MyczMC4wIkU!5e0!3m2!1snl!2sbe!4v1700000000000"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Locatie Georgie B&B Gent"></iframe>
-    </div>
-
-    <div class="location-text reveal">
-      <div class="section-header-eyebrow">04 / Ligging</div>
-      <h2><em>Op stapafstand</em><br>van alles.</h2>
-      <p>
-        Op 5 minuten wandelen van Sint-Pietersstation, op 15 minuten met de
-        fiets van het centrum. Voor de deur: het Citadelpark, het MSK en
-        het S.M.A.K. Met tram 1 staat u in 7 minuten aan de Korenmarkt.
-      </p>
-      <ul class="location-list">
-        <li><span class="dist">5 min</span><span class="place">Gent-Sint-Pieters Station</span></li>
-        <li><span class="dist">3 min</span><span class="place">Citadelpark / MSK / S.M.A.K.</span></li>
-        <li><span class="dist">7 min</span><span class="place">Tram 1 → Korenmarkt</span></li>
-        <li><span class="dist">15 min</span><span class="place">Historisch centrum (fiets)</span></li>
-        <li><span class="dist">30 min</span><span class="place">Brussel (trein)</span></li>
-        <li><span class="dist">50 min</span><span class="place">Brussels Airport (trein)</span></li>
-      </ul>
     </div>
   </div>
 </section>
@@ -2037,10 +1995,10 @@
     </div>
     <div class="footer-col">
       <h4>Hotel</h4>
-      <p><a href="#kamers">Kamers</a></p>
-      <p><a href="#huis">Het huis</a></p>
-      <p><a href="#praktisch">Praktisch</a></p>
-      <p><a href="#ligging">Ligging</a></p>
+      <p><a href="index.html#kamers">Kamers</a></p>
+      <p><a href="index.html#huis">Het huis</a></p>
+      <p><a href="index.html#praktisch">Praktisch</a></p>
+      <p><a href="index.html#ligging">Ligging</a></p>
       <p><a href="goedemorgen.html">Ontbijt</a></p>
       <p><a href="faq.html">FAQ</a></p>
     </div>
@@ -2072,7 +2030,7 @@
 
   // Nav background switch when over dark sections
   const nav = document.getElementById('mainNav');
-  const darkSections = ['practical', 'reserve-cta'].map(c =>
+  const darkSections = ['practical', 'practical-v2', 'reserve-cta'].map(c =>
     document.querySelector('.' + c)
   ).filter(Boolean);
 
@@ -2090,118 +2048,6 @@
   checkNavBg();
 </script>
 
-
-<script>
-  // Room data
-  const rooms = {
-    suite: {
-      tag: 'Suite / Kamer nº1',
-      name: 'The Suite',
-      sub: 'De grootste kamer, met aparte zithoek',
-      desc: 'In stoffig roze met een aparte zithoek voor twee. De bay window kijkt uit over de Astridlaan. Een ruim bad en een aparte douche in de badkamer.',
-      img: 'images/suite-01.jpg',
-      specs: [
-        ['Personen', '2'],
-        ['Bed', 'Kingsize 180×200'],
-        ['Oppervlakte', '± 32 m²'],
-        ['Badkamer', 'Bad + douche']
-      ],
-      price: '€245',
-      priceNote: 'per nacht / inclusief btw'
-    },
-    room20: {
-      tag: 'Comfort / Kamer nº20',
-      name: 'Room nº20',
-      sub: 'Warme cognactinten, koperen details',
-      desc: 'Warme cognactinten en witte metro tegels in de badkamer. Een raamzitje voor wie graag leest, koperen details die de avond mooi vangen.',
-      img: 'images/room20-01.jpg',
-      specs: [
-        ['Personen', '2'],
-        ['Bed', 'Queensize 160×200'],
-        ['Oppervlakte', '± 22 m²'],
-        ['Badkamer', 'Bad + douche']
-      ],
-      price: '€185',
-      priceNote: 'per nacht / inclusief btw'
-    },
-    room21: {
-      tag: 'Comfort / Kamer nº21',
-      name: 'Room nº21',
-      sub: 'Diep aubergine, rustig en ingetogen',
-      desc: 'De donkerste kamer van het huis, in diep aubergine. Rustig, ingetogen, met een badkamer in oker. Voor wie verkiest om volledig uit te schakelen.',
-      img: 'images/room21-01.jpg',
-      specs: [
-        ['Personen', '2'],
-        ['Bed', 'Queensize 160×200'],
-        ['Oppervlakte', '± 22 m²'],
-        ['Badkamer', 'Walk-in douche']
-      ],
-      price: '€185',
-      priceNote: 'per nacht / inclusief btw'
-    },
-    loft: {
-      tag: 'Familiekamer / Onder de nok',
-      name: 'The Loft',
-      sub: 'Familiekamer met houten balken en dakraam',
-      desc: 'Onder de nok van het huis, met zichtbare houten balken en een glazen dakraam. Twee stapelbedden naast een groot bed: ruimte voor een familie tot vier personen.',
-      img: 'images/loft-01.jpg',
-      specs: [
-        ['Personen', '2 / 4'],
-        ['Bed', 'Kingsize + 2 stapelbedden'],
-        ['Oppervlakte', '± 38 m²'],
-        ['Badkamer', 'Bad + douche']
-      ],
-      price: '€265',
-      priceNote: 'per nacht / inclusief btw'
-    }
-  };
-
-  const modal = document.getElementById('roomModal');
-  const modalImg = document.getElementById('modalImg');
-  const modalTag = document.getElementById('modalTag');
-  const modalName = document.getElementById('modalName');
-  const modalSub = document.getElementById('modalSub');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalSpecs = document.getElementById('modalSpecs');
-  const modalPrice = document.getElementById('modalPrice');
-  const closeBtn = document.querySelector('.room-modal-close');
-
-  function openRoom(key) {
-    const r = rooms[key];
-    if (!r) return;
-    modalImg.src = r.img;
-    modalImg.alt = r.name;
-    modalTag.textContent = r.tag;
-    modalName.textContent = r.name;
-    modalSub.textContent = r.sub;
-    modalDesc.textContent = r.desc;
-    modalSpecs.innerHTML = r.specs.map(s =>
-      `<div class="spec"><span class="spec-label">${s[0]}</span><span class="spec-value">${s[1]}</span></div>`
-    ).join('');
-    modalPrice.innerHTML = `<strong>${r.price}</strong> <em>${r.priceNote}</em>`;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeRoom() {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.room-mini').forEach(card => {
-    card.addEventListener('click', () => openRoom(card.dataset.room));
-  });
-
-  closeBtn.addEventListener('click', closeRoom);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeRoom();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeRoom();
-  });
-</script>
 
 </body>
 </html>
