@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ontdek Gent - Georgie B&B Gent</title>
+<meta name="description" content="Ontdek Gent met wandelroutes, restaurants, hotspots en lokale tips, vertrekkend vanuit Georgie B&B aan de Koningin Astridlaan.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jeffgent.github.io/georgie-website/guest/nl/stad.html">
+<link rel="alternate" hreflang="nl" href="https://jeffgent.github.io/georgie-website/guest/nl/stad.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/guest.css">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
+<style>
+.section-heading{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--bordeaux);margin:40px 0 16px}
+.section-heading:first-of-type{margin-top:32px}
+</style>
+<link rel="manifest" href="../manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#5e1e26">
+<link rel="apple-touch-icon" href="../../favicon.svg">
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../../" class="top-logo">Georgie</a>
+  <div class="top-langs">
+    <a href="stad.html" hreflang="nl" class="active">NL</a>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <a href="./" class="page-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg> Terug</a>
+
+  <h1 class="page-title">Ontdek <em>Gent</em></h1>
+  <p class="page-intro">Een stad vol verhalen, verborgen parels en onvergetelijke plekjes. Onze wandelroutes vertrekken vanuit Georgie, en alle tips staan op de kaart.</p>
+
+  <div id="map" class="map-container"></div>
+
+  <!-- ── Walking routes ── -->
+  <h2 class="section-heading">Wandelroutes vanaf Georgie</h2>
+
+  <div class="walk-grid">
+    <div class="walk-card active" data-walk="riverside">
+      <div class="walk-header">
+        <h2>Onze favoriete wandeling</h2>
+        <div class="walk-meta">
+          <span class="walk-badge">2.3 km</span>
+          <span class="walk-badge">30 min</span>
+        </div>
+      </div>
+      <p>De mooiste route naar het centrum. Via Citadelpark, langs MSK en S.M.A.K., dan oversteken aan de R40 en de Leie volgen tot de Korenmarkt.</p>
+      <div class="walk-stops">
+        <div class="walk-stop"><span class="walk-stop-num">1</span> Georgie B&amp;B (start)</div>
+        <div class="walk-stop"><span class="walk-stop-num">2</span> Citadelpark</div>
+        <div class="walk-stop"><span class="walk-stop-num">3</span> MSK / S.M.A.K.</div>
+        <div class="walk-stop"><span class="walk-stop-num">4</span> Bijlokekaai (langs de Leie)</div>
+        <div class="walk-stop"><span class="walk-stop-num">5</span> Korenmarkt</div>
+      </div>
+      <a href="#map" class="walk-btn">Bekijk op de kaart <span>&rarr;</span></a>
+    </div>
+
+    <div class="walk-card" data-walk="foodie">
+      <div class="walk-header">
+        <h2>De foodie wandeling</h2>
+        <div class="walk-meta">
+          <span class="walk-badge">3 km</span>
+          <span class="walk-badge">2 uur</span>
+        </div>
+      </div>
+      <p>Een tour langs de beste smaken van Gent. Stop voor koffie, kaas, chocolade en een lokaal biertje onderweg.</p>
+      <div class="walk-stops">
+        <div class="walk-stop"><span class="walk-stop-num">1</span> Georgie B&amp;B (start)</div>
+        <div class="walk-stop"><span class="walk-stop-num">2</span> Mokabon (koffiebranders sinds 1937)</div>
+        <div class="walk-stop"><span class="walk-stop-num">3</span> Tierenteyn (mosterdzaak sinds 1790)</div>
+        <div class="walk-stop"><span class="walk-stop-num">4</span> Groot Vleeshuis (food hall)</div>
+        <div class="walk-stop"><span class="walk-stop-num">5</span> Dulle Griet (330 bieren)</div>
+        <div class="walk-stop"><span class="walk-stop-num">6</span> Yuzu (beste ijs van de stad)</div>
+      </div>
+      <a href="#map" class="walk-btn">Bekijk op de kaart <span>&rarr;</span></a>
+    </div>
+
+    <div class="walk-card" data-walk="art">
+      <div class="walk-header">
+        <h2>Kunst &amp; street art</h2>
+        <div class="walk-meta">
+          <span class="walk-badge">4 km</span>
+          <span class="walk-badge">2.5 uur</span>
+        </div>
+      </div>
+      <p>Van oude meesters tot graffiti-steegjes. Deze wandeling vertrekt vlak naast SMAK en MSK, en neemt je mee langs de creatieve kant van Gent.</p>
+      <div class="walk-stops">
+        <div class="walk-stop"><span class="walk-stop-num">1</span> Georgie B&amp;B (start)</div>
+        <div class="walk-stop"><span class="walk-stop-num">2</span> S.M.A.K. (hedendaagse kunst)</div>
+        <div class="walk-stop"><span class="walk-stop-num">3</span> MSK (schone kunsten)</div>
+        <div class="walk-stop"><span class="walk-stop-num">4</span> Werregarenstraat (graffitisteeg)</div>
+        <div class="walk-stop"><span class="walk-stop-num">5</span> Design Museum Gent</div>
+        <div class="walk-stop"><span class="walk-stop-num">6</span> Sint-Baafs (Het Lam Gods)</div>
+        <div class="walk-stop"><span class="walk-stop-num">7</span> STAM (stadsmuseum)</div>
+      </div>
+      <a href="#map" class="walk-btn">Bekijk op de kaart <span>&rarr;</span></a>
+    </div>
+  </div>
+
+  <!-- ── Tips & places ── -->
+  <h2 class="section-heading">Tips &amp; plekken</h2>
+
+  <div class="accordion" id="poiAccordion">
+
+    <div class="accordion-item" data-poi="hotspots">
+      <button class="accordion-trigger" aria-expanded="false">
+        Hotspots
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <h3>Vlak om de hoek</h3>
+          <div class="place-card" data-lng="3.72334" data-lat="51.03850">
+            <div class="place-info">
+              <div class="place-name">S.M.A.K. / Museum voor Actuele Kunst</div>
+              <div class="place-desc">Hedendaagse kunst met wisselende tentoonstellingen. ±3 minuten lopen via Citadelpark.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72416" data-lat="51.03834">
+            <div class="place-info">
+              <div class="place-name">MSK / Museum voor Schone Kunsten</div>
+              <div class="place-desc">Europese kunst van de middeleeuwen tot de 20e eeuw. ±3 minuten lopen.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72050" data-lat="51.03720">
+            <div class="place-info">
+              <div class="place-name">Citadelpark</div>
+              <div class="place-desc">Het stadspark voor de deur, met vijver, kiosk en de Floraliënhal.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+
+          <h3>Historisch centrum</h3>
+          <div class="place-card" data-lng="3.72117" data-lat="51.05728">
+            <div class="place-info">
+              <div class="place-name">Gravensteen</div>
+              <div class="place-desc">Middeleeuws kasteel in het hart van Gent, indrukwekkend van binnen en buiten.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72603" data-lat="51.05340">
+            <div class="place-info">
+              <div class="place-name">Sint-Baafskathedraal</div>
+              <div class="place-desc">Thuishaven van Het Lam Gods, het meesterwerk van de gebroeders Van Eyck.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72488" data-lat="51.05377">
+            <div class="place-info">
+              <div class="place-name">Belfort</div>
+              <div class="place-desc">Middeleeuwse klokkentoren en UNESCO-werelderfgoed. Spectaculair uitzicht.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72030" data-lat="51.05364">
+            <div class="place-info">
+              <div class="place-name">Sint-Michielskerk</div>
+              <div class="place-desc">Gotische kerk met werken van Van Dyck en een iconische, onafgewerkte toren.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" data-poi="restaurants">
+      <button class="accordion-trigger" aria-expanded="false">
+        Restaurants
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <h3>In de buurt van Georgie</h3>
+          <div class="place-card" data-lng="3.71485" data-lat="51.03744">
+            <div class="place-info">
+              <div class="place-name">Traiteur Toulouse</div>
+              <div class="place-desc">Gezellige bistro met Franse invloeden en verfijnde gerechten.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.71072" data-lat="51.03740">
+            <div class="place-info">
+              <div class="place-name">Caf&eacute; Parti</div>
+              <div class="place-desc">Fusion keuken in een elegant kader, vlakbij het station.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.71436" data-lat="51.03765">
+            <div class="place-info">
+              <div class="place-name">Mengie</div>
+              <div class="place-desc">Authentiek Italiaans voor een fijne prijs.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+
+          <h3>In het centrum</h3>
+          <div class="place-card" data-lng="3.72210" data-lat="51.05343">
+            <div class="place-info">
+              <div class="place-name">Pakhuis</div>
+              <div class="place-desc">Stijlvolle brasserie met seizoensgerechten in een industrieel pand.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72458" data-lat="51.06009">
+            <div class="place-info">
+              <div class="place-name">De Stokerij</div>
+              <div class="place-desc">Sfeervol restaurant met eigentijdse keuken in een historisch pand.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.73164" data-lat="51.04902">
+            <div class="place-info">
+              <div class="place-name">Restaurant Martino</div>
+              <div class="place-desc">Authentieke snackbar, een klassieker in Gent.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72386" data-lat="51.05541">
+            <div class="place-info">
+              <div class="place-name">Mosquito Coast</div>
+              <div class="place-desc">Reisthema-caf&eacute; met internationale keuken.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.72036" data-lat="51.05095">
+            <div class="place-info">
+              <div class="place-name">Caf&eacute; Ren&eacute;e</div>
+              <div class="place-desc">Huiselijke sfeer met klassieke, eerlijke gerechten.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+
+          <p style="margin-top:16px">Nog meer tips nodig? Stuur ons een berichtje, we kennen Gent als onze broekzak.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        City cards
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <p>Met een citycard krijg je toegang tot musea, monumenten en openbaar vervoer in Gent.</p>
+          <div class="info-box">
+            <strong>48 uur: €38</strong><br>
+            <strong>72 uur: €44</strong>
+          </div>
+          <p>Te koop bij Visit Gent op het Sint-Veerleplein of online. Twijfel je of het de moeite waard is? Op de website van Visit Gent kan je berekenen hoeveel je bespaart op basis van je planning.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" data-poi="bike">
+      <button class="accordion-trigger" aria-expanded="false">
+        Fietsverhuur
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <div class="place-card" data-lng="3.70916" data-lat="51.03458">
+            <div class="place-info">
+              <div class="place-name">Fietsambassade</div>
+              <div class="place-desc">Aan de achterzijde van station Gent-Sint-Pieters. 5 min wandelen vanaf Georgie.</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" data-poi="supermarket">
+      <button class="accordion-trigger" aria-expanded="false">
+        Supermarkt
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <div class="place-card" data-lng="3.71245" data-lat="51.03714">
+            <div class="place-info">
+              <div class="place-name">Carrefour Express</div>
+              <div class="place-desc">Koningin Marie Hendrikaplein 7 / ma-vr 7-19u / za 8-19u / zo 8-12u</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+          <div class="place-card" data-lng="3.70880" data-lat="51.03756">
+            <div class="place-info">
+              <div class="place-name">Proxy Delhaize</div>
+              <div class="place-desc">Koningin Fabiolalaan 200 / dagelijks 7:30-20:00</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" data-poi="tourist">
+      <button class="accordion-trigger" aria-expanded="false">
+        Toeristisch infokantoor
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-content">
+          <div class="place-card" data-lng="3.72152" data-lat="51.05638">
+            <div class="place-info">
+              <div class="place-name">Visit Gent</div>
+              <div class="place-desc">Sint-Veerleplein / dagelijks 10:00-17:00</div>
+            </div>
+            <a href="#map" class="place-link place-map-link">Toon op kaart &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="guest-footer">
+  Georgie B&amp;B Gent / Koningin Astridlaan 159, 9000 Gent<br>
+  <a href="mailto:hallo@georgie.be">hallo@georgie.be</a> / <a href="https://wa.me/32485382828">WhatsApp +32 485 38 28 28</a>
+</div>
+
+<a href="https://wa.me/32485382828?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20mijn%20verblijf%20bij%20Georgie" class="wa-float" target="_blank" rel="noopener" aria-label="Chat op WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Chat met ons</span>
+</a>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+<script>
+var GEORGIE = [3.71404, 51.03607];
+var BORDEAUX = '#5e1e26';
+var GOLD = '#a5824b';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmdlbnQiLCJhIjoiY21vNW9rZ2NjMHp3aDJ3c2xhanR1OTZqZiJ9.xfabqRzqY6H_ENgpAgLiEg';
+
+var walks = {
+  riverside: {
+    stops: [
+      { coords: GEORGIE, name: 'Georgie B&B', desc: 'Start hier' },
+      { coords: [3.72050, 51.03720], name: 'Citadelpark', desc: 'Wandel door het park' },
+      { coords: [3.72380, 51.03840], name: 'MSK / S.M.A.K.', desc: 'Twee musea naast elkaar' },
+      { coords: [3.72068, 51.04478], name: 'Bijlokekaai', desc: 'Wandel langs de Leie' },
+      { coords: [3.72184, 51.05473], name: 'Korenmarkt', desc: 'Het centrale plein, het hart van Gent' }
+    ]
+  },
+  foodie: {
+    stops: [
+      { coords: GEORGIE, name: 'Georgie B&B', desc: 'Start hier' },
+      { coords: [3.72257, 51.05495], name: 'Mokabon', desc: 'Koffiebranders sinds 1937' },
+      { coords: [3.72255, 51.05579], name: 'Tierenteyn', desc: 'Ambachtelijke mosterd sinds 1790' },
+      { coords: [3.72226, 51.05603], name: 'Groot Vleeshuis', desc: 'Middeleeuwse food hall met streekproducten' },
+      { coords: [3.72565, 51.05665], name: 'Dulle Griet', desc: 'Legendarisch biercafé / 330 bieren' },
+      { coords: [3.72726, 51.04913], name: 'Yuzu', desc: 'Ambachtelijk ijs met gedurfde smaken' }
+    ]
+  },
+  art: {
+    stops: [
+      { coords: GEORGIE, name: 'Georgie B&B', desc: 'Start hier' },
+      { coords: [3.72334, 51.03850], name: 'S.M.A.K.', desc: 'Museum voor hedendaagse kunst' },
+      { coords: [3.72416, 51.03834], name: 'MSK', desc: 'Schone kunsten van middeleeuwen tot 20e eeuw' },
+      { coords: [3.72522, 51.05564], name: 'Werregarenstraat', desc: 'De beroemde graffitisteeg van Gent' },
+      { coords: [3.72079, 51.05579], name: 'Design Museum Gent', desc: 'Van art nouveau tot hedendaags design' },
+      { coords: [3.72703, 51.05332], name: 'Sint-Baafskathedraal', desc: 'Het Lam Gods van Van Eyck' },
+      { coords: [3.71825, 51.04411], name: 'STAM', desc: 'Het verhaal van de stad Gent' }
+    ]
+  }
+};
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v11',
+  center: [3.7160, 51.0450],
+  zoom: 14,
+  attributionControl: false
+});
+map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+map.addControl(new mapboxgl.GeolocateControl({
+  positionOptions: { enableHighAccuracy: true },
+  trackUserLocation: true,
+  showUserHeading: true
+}), 'top-right');
+
+var markers = [];
+
+function clearMap() {
+  markers.forEach(function(m) { m.remove(); });
+  markers = [];
+  if (map.getSource('route')) {
+    map.removeLayer('route-line');
+    map.removeSource('route');
+  }
+}
+
+function fetchRoute(coords, cb) {
+  var coordStr = coords.map(function(c) { return c[0] + "," + c[1]; }).join(";");
+  var url = "https://api.mapbox.com/directions/v5/mapbox/walking/" + coordStr
+    + "?geometries=geojson&overview=full&access_token=" + mapboxgl.accessToken;
+  fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.routes && data.routes[0]) cb(data.routes[0].geometry.coordinates);
+    else cb(coords);
+  }).catch(function() { cb(coords); });
+}
+
+function drawRoute(coords) {
+  if (map.getSource("route")) {
+    map.getSource("route").setData({ type: "Feature", geometry: { type: "LineString", coordinates: coords } });
+  } else if (map.isStyleLoaded()) {
+    map.addSource("route", { type: "geojson", data: { type: "Feature", geometry: { type: "LineString", coordinates: coords } } });
+    map.addLayer({ id: "route-line", type: "line", source: "route", paint: { "line-color": GOLD, "line-width": 3, "line-opacity": 0.6 } });
+  }
+}
+
+function showWalk(walkId) {
+  clearMap();
+  var walk = walks[walkId];
+
+  var markerNum = 0;
+  walk.stops.forEach(function(stop) {
+    markerNum++;
+    var el = document.createElement("div");
+    el.style.cssText = "width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:12px;font-weight:500;cursor:pointer;";
+    if (markerNum === 1) {
+      el.style.background = BORDEAUX; el.style.color = '#f5f0e8';
+      el.style.width = "32px"; el.style.height = "32px"; el.style.fontSize = "13px";
+    } else {
+      el.style.background = GOLD; el.style.color = '#fff';
+    }
+    el.textContent = markerNum;
+
+    var popup = new mapboxgl.Popup({ offset: 20, closeButton: false })
+      .setHTML("<h3>" + stop.name + "</h3><p>" + stop.desc + "</p>");
+
+    markers.push(new mapboxgl.Marker({ element: el }).setLngLat(stop.coords).setPopup(popup).addTo(map));
+  });
+
+  var stopCoords = walk.stops.map(function(s) { return s.coords; });
+  fetchRoute(stopCoords, drawRoute);
+
+  var bounds = new mapboxgl.LngLatBounds();
+  walk.stops.forEach(function(s) { bounds.extend(s.coords); });
+  map.fitBounds(bounds, { padding: 50, maxZoom: 15.5, duration: 800 });
+
+  document.querySelectorAll(".walk-card").forEach(function(c) { c.classList.toggle("active", c.dataset.walk === walkId); });
+  document.querySelectorAll(".accordion-item").forEach(function(a) { a.classList.remove("open"); a.querySelector(".accordion-trigger").setAttribute("aria-expanded", "false"); });
+}
+
+function showPois(accordionItem) {
+  clearMap();
+  var cards = accordionItem.querySelectorAll('.place-card[data-lng]');
+  var bounds = new mapboxgl.LngLatBounds();
+
+  cards.forEach(function(card) {
+    var lng = parseFloat(card.dataset.lng);
+    var lat = parseFloat(card.dataset.lat);
+    var name = card.querySelector('.place-name').textContent;
+    var desc = card.querySelector('.place-desc').textContent;
+
+    var el = document.createElement('div');
+    el.style.cssText = 'width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.2);background:' + GOLD + ';cursor:pointer';
+
+    var popup = new mapboxgl.Popup({ offset: 12, closeButton: false })
+      .setHTML('<h3>' + name + '</h3><p>' + desc + '</p><a href="https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng + '&travelmode=walking" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;font-size:12px;color:' + BORDEAUX + ';text-decoration:none;font-weight:500">Route in Google Maps &rarr;</a>');
+
+    markers.push(new mapboxgl.Marker({ element: el }).setLngLat([lng, lat]).setPopup(popup).addTo(map));
+    bounds.extend([lng, lat]);
+  });
+
+  var hotelEl = document.createElement('div');
+  hotelEl.style.cssText = 'width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.2);background:' + BORDEAUX;
+  markers.push(new mapboxgl.Marker({ element: hotelEl }).setLngLat(GEORGIE).setPopup(new mapboxgl.Popup({ offset: 12, closeButton: false }).setHTML('<h3>Georgie B&B</h3><p>Je bent hier</p>')).addTo(map));
+  bounds.extend(GEORGIE);
+
+  if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 50, maxZoom: 15.5, duration: 800 });
+
+  document.querySelectorAll('.walk-card').forEach(function(c) { c.classList.remove('active'); });
+}
+
+function flyToPlace(card) {
+  var lng = parseFloat(card.dataset.lng);
+  var lat = parseFloat(card.dataset.lat);
+  map.flyTo({ center: [lng, lat], zoom: 16, duration: 800 });
+  markers.forEach(function(m) {
+    var pos = m.getLngLat();
+    if (Math.abs(pos.lng - lng) < 0.0005 && Math.abs(pos.lat - lat) < 0.0005) {
+      m.togglePopup();
+    }
+  });
+}
+
+map.on('load', function() { showWalk('riverside'); });
+
+document.querySelectorAll('.walk-card').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('.walk-btn')) return;
+    showWalk(card.dataset.walk);
+  });
+});
+
+document.querySelectorAll('.walk-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    showWalk(btn.closest('.walk-card').dataset.walk);
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
+document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.closest('.accordion-item');
+    var wasOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.accordion-item').forEach(function(a) {
+      a.classList.remove('open');
+      a.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!wasOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      if (item.querySelector('.place-card[data-lng]')) {
+        showPois(item);
+      }
+    } else {
+      showWalk('riverside');
+    }
+  });
+});
+
+document.querySelectorAll('.place-map-link').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var card = link.closest('.place-card');
+    flyToPlace(card);
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+</script>
+
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('../sw.js');</script>
+</body>
+</html>

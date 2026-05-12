@@ -1,0 +1,19 @@
+{
+  "name": "Georgie B&B Gent",
+  "short_name": "Georgie",
+  "description": "Alles voor je verblijf bij Georgie B&B Gent",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#5e1e26",
+  "background_color": "#faf7f0",
+  "icons": [
+    {
+      "src": "../favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
