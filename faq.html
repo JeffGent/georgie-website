@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Georgie B&B Gent veelgestelde vragen over uw verblijf</title>
+<meta name="description" content="Antwoorden op de meest gestelde vragen over Georgie B&B in Gent: self check-in, parking, ontbijt, annulering, betaalwijzen en bereikbaarheid vanuit Brussels Airport.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --bordeaux: #5e1e26;
+    --bordeaux-deep: #4a161e;
+    --bordeaux-soft: #6e2a32;
+    --cream: #f5f0e8;
+    --warm-white: #faf7f0;
+    --paper: #f3ede2;
+    --black: #141414;
+    --soft-black: #2a2323;
+    --text-muted: #6a625e;
+    --text-soft: #8a807a;
+    --gold: #a5824b;
+    --rule: #d8cfc3;
+    --rule-soft: #e6ddd1;
+
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--soft-black);
+    line-height: 1.6;
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; }
+
+  /* =========================================================
+     NAV
+     ========================================================= */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 40px;
+    align-items: center;
+    background: rgba(250, 247, 240, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(216, 207, 195, 0.4);
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  nav.over-dark {
+    background: rgba(74, 22, 30, 0.92);
+    border-bottom-color: rgba(245, 240, 232, 0.15);
+  }
+
+  nav.over-dark .brand,
+  nav.over-dark .nav-links a,
+  nav.over-dark .lang a { color: var(--cream); }
+
+  nav.over-dark .nav-links a:hover { color: var(--gold); }
+
+  nav .brand {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: 0.01em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    justify-self: start;
+    margin-left: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--soft-black);
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--bordeaux); }
+
+  .lang {
+    display: flex;
+    gap: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .lang a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+  }
+
+  .lang a.active { color: var(--bordeaux); font-weight: 500; }
+  nav.over-dark .lang a.active { color: var(--gold); }
+
+  .book-button {
+    background: var(--bordeaux);
+    color: var(--cream) !important;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    border: 1px solid var(--bordeaux);
+  }
+
+  .book-button:hover { background: var(--bordeaux-deep); }
+
+  nav.over-dark .book-button {
+    background: var(--cream);
+    color: var(--bordeaux) !important;
+    border-color: var(--cream);
+  }
+
+  nav.over-dark .book-button:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--cream) !important;
+  }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--bordeaux);
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 100px;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(20,15,15,0.5) 0%,
+        rgba(20,15,15,0.35) 40%,
+        rgba(20,15,15,0.7) 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    color: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--cream);
+    opacity: 0.7;
+  }
+
+  h1.hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(4rem, 11vw, 11rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 36px;
+    max-width: 1100px;
+  }
+
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .hero-lead {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--cream);
+    opacity: 0.95;
+    max-width: 580px;
+    margin-bottom: 50px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--bordeaux);
+    text-decoration: none;
+    padding: 18px 36px;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover { background: var(--gold); color: var(--cream); }
+
+  .btn-secondary {
+    display: inline-block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-secondary:hover { opacity: 0.7; }
+
+  .hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    right: 40px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: var(--cream);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* =========================================================
+     USP STRIP vier blokken zoals Chamade
+     ========================================================= */
+  .usps {
+    background: var(--cream);
+    padding: 90px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .usp-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .usp {
+    padding: 0 40px;
+    border-right: 1px solid var(--rule-soft);
+  }
+
+  .usp:last-child { border-right: none; }
+  .usp:first-child { padding-left: 0; }
+  .usp:last-child { padding-right: 0; }
+
+  .usp-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--bordeaux);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .usp h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .usp p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* =========================================================
+     INTRO / HOUSE STORY
+     ========================================================= */
+  .intro {
+    padding: 130px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .intro-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .intro-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--bordeaux);
+  }
+
+  .intro h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--black);
+    margin-bottom: 50px;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+  }
+
+  .intro h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .intro-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 70px;
+  }
+
+  .intro-body p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-bottom: 24px;
+  }
+
+  .intro-body p:last-child { margin-bottom: 0; }
+
+  .intro-body em { font-style: italic; color: var(--bordeaux); }
+
+  /* House gallery */
+  .house-gallery {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px 130px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  .house-gallery figure {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .house-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .house-gallery figure:hover img { transform: scale(1.04); }
+
+  .house-gallery figcaption {
+    position: absolute;
+    bottom: 20px; left: 24px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--cream);
+    font-size: 1rem;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+  }
+
+  .gal-1 { grid-column: span 7; aspect-ratio: 4/3; }
+  .gal-2 { grid-column: span 5; aspect-ratio: 3/4; }
+  .gal-3 { grid-column: span 5; aspect-ratio: 4/5; }
+  .gal-4 { grid-column: span 7; aspect-ratio: 16/10; }
+
+  /* =========================================================
+     ROOMS
+     ========================================================= */
+  .rooms {
+    background: var(--paper);
+    padding: 130px 40px;
+  }
+
+  .section-header {
+    max-width: 1300px;
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .section-header-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-header-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--bordeaux);
+  }
+
+  .section-header h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .section-header h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .section-header-right {
+    padding-bottom: 8px;
+  }
+
+  .section-header-right p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+  }
+
+  .section-header-right a {
+    display: inline-block;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--bordeaux);
+    text-decoration: none;
+    border-bottom: 1px solid var(--bordeaux);
+    padding-bottom: 2px;
+  }
+
+  .room-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+
+  .room {
+    background: var(--warm-white);
+  }
+
+  .room-visual {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: var(--bordeaux);
+  }
+
+  .room-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .room:hover .room-visual img { transform: scale(1.04); }
+
+  .room-tag {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    background: rgba(20,15,15,0.55);
+    color: var(--cream);
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    z-index: 2;
+  }
+
+  .room-content {
+    padding: 30px 32px 36px;
+  }
+
+  .room-meta-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .room-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.2rem;
+    color: var(--black);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .room-name em { font-style: italic; }
+
+  .room-desc {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--soft-black);
+    margin-bottom: 24px;
+  }
+
+  .room-spec {
+    display: flex;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .room-spec span { letter-spacing: 0.05em; }
+
+  .room-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .room-price-line {
+    font-family: var(--serif);
+    color: var(--soft-black);
+  }
+
+  .room-price-line em {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .room-price-line strong {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+
+  .room-cta {
+    color: var(--bordeaux);
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--bordeaux);
+    padding-bottom: 2px;
+  }
+
+  /* =========================================================
+     CHECK-IN practical strip
+     ========================================================= */
+  .practical {
+    background: var(--bordeaux);
+    color: var(--cream);
+    padding: 130px 40px;
+  }
+
+  .practical-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .practical-left .section-header-eyebrow {
+    color: var(--gold);
+  }
+
+  .practical-left .section-header-eyebrow::before {
+    background: var(--gold);
+  }
+
+  .practical-left h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+
+  .practical-left h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .practical-list {
+    display: grid;
+    gap: 1px;
+    background: rgba(245, 240, 232, 0.15);
+  }
+
+  .practical-item {
+    background: var(--bordeaux);
+    padding: 32px 0;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .practical-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold);
+    padding-top: 4px;
+  }
+
+  .practical-item h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .practical-item p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.8);
+  }
+
+  /* =========================================================
+     LOCATION
+     ========================================================= */
+  .location {
+    padding: 130px 40px;
+    background: var(--warm-white);
+  }
+
+  .location-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .map-container {
+    aspect-ratio: 4/5;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.6) sepia(0.15);
+  }
+
+  .location-text h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--black);
+    margin-bottom: 30px;
+    letter-spacing: -0.01em;
+  }
+
+  .location-text h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .location-text p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-bottom: 24px;
+  }
+
+  .location-list {
+    list-style: none;
+    margin-top: 40px;
+  }
+
+  .location-list li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .location-list li:last-child { border-bottom: 1px solid var(--rule); }
+
+  .location-list .dist {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--bordeaux);
+    font-size: 1rem;
+  }
+
+  .location-list .place {
+    font-family: var(--serif);
+    color: var(--soft-black);
+    font-size: 1.05rem;
+  }
+
+  /* =========================================================
+     FAQ
+     ========================================================= */
+  .faq {
+    padding: 130px 40px;
+    background: var(--cream);
+  }
+
+  .faq-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .faq-header .section-header-eyebrow {
+    justify-content: center;
+  }
+
+  .faq-header h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .faq-header h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .faq-list details {
+    border-top: 1px solid var(--rule);
+    padding: 24px 0;
+  }
+
+  .faq-list details:last-child { border-bottom: 1px solid var(--rule); }
+
+  .faq-list summary {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--black);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+  }
+
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary:hover { color: var(--bordeaux); }
+
+  .faq-list summary::after {
+    content: '+';
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.8rem;
+    color: var(--bordeaux);
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  .faq-list details[open] summary::after {
+    content: '−';
+  }
+
+  .faq-list details p,
+  .faq-list details a {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-top: 16px;
+  }
+
+  .faq-list details a {
+    color: var(--bordeaux);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* =========================================================
+     RESERVE CTA
+     ========================================================= */
+  .reserve-cta {
+    position: relative;
+    padding: 160px 40px;
+    text-align: center;
+    overflow: hidden;
+    background: var(--bordeaux-deep);
+    color: var(--cream);
+  }
+
+  .reserve-cta-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  .reserve-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(74,22,30,0.7) 0%, rgba(74,22,30,0.92) 100%);
+    z-index: 2;
+  }
+
+  .reserve-cta-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .reserve-cta h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 30px;
+  }
+
+  .reserve-cta h2 em { font-style: italic; color: var(--gold); }
+
+  .reserve-cta p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: rgba(245, 240, 232, 0.85);
+    margin-bottom: 50px;
+  }
+
+  .reserve-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .reserve-cta .btn-primary {
+    background: var(--cream);
+    color: var(--bordeaux);
+  }
+
+  .reserve-cta .btn-primary:hover {
+    background: var(--gold);
+    color: var(--cream);
+  }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  footer {
+    padding: 80px 40px 40px;
+    background: var(--bordeaux-deep);
+    color: var(--cream);
+  }
+
+  .footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+  }
+
+  .footer-brand .wordmark-small {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.6rem;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand .descriptor-small {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+
+  .footer-brand p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    opacity: 0.7;
+  }
+
+  .footer-col h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    opacity: 0.6;
+    font-weight: 500;
+  }
+
+  .footer-col p, .footer-col a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    display: block;
+  }
+
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  /* =========================================================
+     ANIMATIONS
+     ========================================================= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  @media (max-width: 980px) {
+    nav { padding: 14px 20px; grid-template-columns: 1fr auto auto; gap: 16px; }
+    .nav-links { display: none; }
+    .lang { display: none; }
+    .hero { padding: 120px 24px 80px; }
+    .hero-bottom { left: 24px; right: 24px; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .hero-lead { font-size: 1.2rem; }
+    .usps { padding: 60px 24px; }
+    .usp-grid { grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule-soft); }
+    .usp { background: var(--cream); padding: 30px; border: none; }
+    .intro, .rooms, .practical, .location, .faq, .reserve-cta { padding-left: 24px; padding-right: 24px; }
+    .intro-body { grid-template-columns: 1fr; gap: 0; }
+    .intro-body p:first-child { margin-bottom: 24px; }
+    .house-gallery { padding: 0 24px 80px; gap: 16px; }
+    .gal-1, .gal-2, .gal-3, .gal-4 { grid-column: span 12; aspect-ratio: 4/3; }
+    .section-header { grid-template-columns: 1fr; gap: 30px; }
+    .room-grid { grid-template-columns: 1fr; gap: 40px; }
+    .practical-grid { grid-template-columns: 1fr; gap: 50px; }
+    .location-grid { grid-template-columns: 1fr; gap: 50px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+  @media (max-width: 600px) {
+    .usp-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  /* BIG SINGLE IMAGE */
+  .big-image {
+    width: 100%;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .big-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 980px) {
+    .big-image { aspect-ratio: 4/3; }
+  }
+
+  /* ROOMS - compact grid */
+  .rooms {
+    background: var(--paper);
+    padding: 130px 40px;
+  }
+
+  .section-header {
+    max-width: 1300px;
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .section-header-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-header-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--bordeaux);
+  }
+
+  .section-header h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .section-header h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .section-header-right {
+    padding-bottom: 8px;
+  }
+
+  .section-header-right p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+  }
+
+  .section-header-right a {
+    display: inline-block;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--bordeaux);
+    text-decoration: none;
+    border-bottom: 1px solid var(--bordeaux);
+    padding-bottom: 2px;
+  }
+
+  /* Compact room grid - 4 columns */
+  .room-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .room-card {
+    background: var(--warm-white);
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    transition: transform 0.4s ease;
+  }
+
+  .room-card:hover { transform: translateY(-4px); }
+
+  .room-card-visual {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+    background: var(--bordeaux);
+    margin-bottom: 16px;
+  }
+
+  .room-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .room-card:hover .room-card-visual img { transform: scale(1.06); }
+
+  .room-card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(20,15,15,0.6);
+    color: var(--cream);
+    padding: 5px 11px;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+  }
+
+  .room-card-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+
+  .room-card-name em { font-style: italic; }
+
+  .room-card-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .room-card-price {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--soft-black);
+  }
+
+  .room-card-price em {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* Modal */
+  .room-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: rgba(20, 15, 15, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .room-modal.open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .room-modal-inner {
+    background: var(--warm-white);
+    width: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .room-modal.open .room-modal-inner {
+    transform: translateY(0);
+  }
+
+  .room-modal-image {
+    background: var(--bordeaux);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .room-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .room-modal-content {
+    padding: 60px 50px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .room-modal-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 20px;
+  }
+
+  .room-modal-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.6rem;
+    color: var(--black);
+    line-height: 1.05;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .room-modal-name em { font-style: italic; }
+
+  .room-modal-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+  }
+
+  .room-modal-desc {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-bottom: 30px;
+  }
+
+  .room-modal-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 30px;
+  }
+
+  .room-modal-specs .spec {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .room-modal-specs .spec-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .room-modal-specs .spec-value {
+    font-family: var(--serif);
+    color: var(--soft-black);
+    font-size: 1.05rem;
+  }
+
+  .room-modal-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .room-modal-price strong {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--black);
+  }
+
+  .room-modal-price em {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .room-modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(20,15,15,0.5);
+    color: var(--cream);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: background 0.3s ease;
+    z-index: 10;
+  }
+
+  .room-modal-close:hover { background: rgba(20,15,15,0.8); }
+
+  @media (max-width: 980px) {
+    .room-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .room-modal { padding: 20px; }
+    .room-modal-inner { grid-template-columns: 1fr; max-height: 95vh; }
+    .room-modal-image { aspect-ratio: 4/3; }
+    .room-modal-content { padding: 40px 30px; }
+    .room-modal-name { font-size: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .room-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* NAV - herwerkt met sub-text */
+  nav .brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+  }
+  nav .brand-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.6rem;
+    letter-spacing: -0.005em;
+    color: var(--black);
+    transition: color 0.4s ease;
+  }
+  nav .brand-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+    transition: color 0.4s ease;
+  }
+  nav.over-dark .brand-name { color: var(--cream); }
+  nav.over-dark .brand-sub { color: rgba(245,240,232,0.6); }
+
+  .lang { font-family: var(--serif); font-size: 0.95rem; letter-spacing: 0; text-transform: none; gap: 6px; align-items: center; }
+  .lang a { color: var(--text-muted); }
+  .lang a.active { color: var(--bordeaux); font-style: italic; }
+  nav.over-dark .lang a { color: rgba(245,240,232,0.6); }
+  nav.over-dark .lang a.active { color: var(--gold); }
+  .lang-sep { color: var(--rule); }
+  nav.over-dark .lang-sep { color: rgba(245,240,232,0.3); }
+
+  /* BOOKING STRIP */
+  .booking-strip {
+    background: var(--cream);
+    border-top: 3px solid var(--bordeaux-soft);
+    padding: 28px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .booking-strip-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .booking-strip-label {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .booking-strip-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--black);
+  }
+  .booking-strip-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-top: 4px;
+  }
+  .booking-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .booking-field {
+    background: var(--warm-white);
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .booking-field:hover { background: #fff; }
+  .booking-field-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .booking-input {
+    border: none;
+    background: transparent;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--black);
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    outline: none;
+  }
+  .booking-input:focus { outline: none; }
+  .booking-strip-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .booking-discount {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .booking-discount em {
+    font-style: italic;
+    color: var(--bordeaux);
+  }
+  .booking-cta-button {
+    display: inline-block;
+    background: var(--bordeaux-soft);
+    color: var(--cream);
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  .booking-cta-button:hover { background: var(--bordeaux); }
+  @media (max-width: 980px) {
+    .booking-strip { padding: 20px 24px; position: relative; }
+    .booking-strip-inner { grid-template-columns: 1fr; gap: 20px; }
+    .booking-fields { grid-template-columns: 1fr 1fr; }
+    .booking-field:nth-child(3) { grid-column: span 2; }
+    .booking-strip-cta { align-items: stretch; }
+    .booking-cta-button { text-align: center; }
+  }
+
+  /* ROOMS compact - 4 mini cards naast elkaar */
+  .rooms-compact {
+    background: var(--warm-white);
+    padding: 130px 40px;
+  }
+  .rooms-compact .section-header {
+    max-width: 1400px;
+    margin: 0 auto 70px;
+  }
+  .rooms-compact-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .room-mini {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.4s ease;
+  }
+  .room-mini:hover { transform: translateY(-3px); }
+  .room-mini-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bordeaux);
+    margin-bottom: 16px;
+  }
+  .room-mini-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .room-mini:hover .room-mini-img img { transform: scale(1.05); }
+  .room-mini-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.45rem;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .room-mini-name em { font-style: italic; }
+  .room-mini-info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .room-mini-dot { color: var(--rule); }
+
+  @media (max-width: 980px) {
+    .rooms-compact { padding: 80px 24px; }
+    .rooms-compact-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  }
+  @media (max-width: 520px) {
+    .rooms-compact-grid { grid-template-columns: 1fr; }
+  }
+
+  /* PRACTICAL v2 - compact grid */
+  .practical-v2 {
+    background: var(--bordeaux);
+    color: var(--cream);
+    padding: 110px 40px;
+  }
+  .practical-v2-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .practical-v2-header {
+    margin-bottom: 70px;
+    max-width: 700px;
+  }
+  .practical-v2-header .practical-eyebrow {
+    color: var(--gold);
+  }
+  .practical-v2-header .practical-eyebrow::before {
+    background: var(--gold);
+  }
+  .practical-v2-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+  .practical-v2-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .practical-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(245,240,232,0.18);
+    border: 1px solid rgba(245,240,232,0.18);
+  }
+  .practical-v2-item {
+    background: var(--bordeaux);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .practical-v2-num {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+  .practical-v2-item h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+  .practical-v2-item p {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: rgba(245,240,232,0.75);
+  }
+  .practical-v2-cta {
+    background: var(--bordeaux-deep);
+    justify-content: center;
+  }
+  .practical-v2-cta p {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--cream);
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+  .practical-v2-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    align-self: flex-start;
+  }
+  @media (max-width: 980px) {
+    .practical-v2 { padding: 80px 24px; }
+    .practical-v2-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .practical-v2-grid { grid-template-columns: 1fr; }
+  }
+
+  /* =========================================================
+     FAQ-PAGE: page hero + faq list
+     ========================================================= */
+  .page-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 360px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--cream);
+  }
+  .page-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(20, 12, 14, 0.55) 0%,
+      rgba(20, 12, 14, 0.35) 50%,
+      rgba(20, 12, 14, 0.7) 100%
+    );
+  }
+  .page-hero-content {
+    position: relative;
+    max-width: 880px;
+    padding: 0 40px 90px;
+    text-align: center;
+  }
+  .page-hero-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.75;
+    margin-bottom: 24px;
+  }
+  h1.page-hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+  h1.page-hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .page-hero-lead {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: 0.92;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* FAQ list (standalone page) */
+  .faq {
+    background: var(--warm-white);
+    padding: 110px 40px 130px;
+  }
+  .faq-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .faq-list details {
+    border-bottom: 1px solid var(--rule);
+    padding: 26px 0;
+  }
+  .faq-list details:first-child {
+    border-top: 1px solid var(--rule);
+  }
+  .faq-list summary {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--black);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    line-height: 1.3;
+  }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: '+';
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--bordeaux);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .faq-list details[open] summary::after {
+    content: '\2212'; /* unicode minus */
+    transform: rotate(0deg);
+  }
+  .faq-list details p {
+    margin-top: 14px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    max-width: 720px;
+  }
+  .faq-list details p a {
+    color: var(--bordeaux);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero-content { padding: 0 24px 60px; }
+    .faq { padding: 70px 24px 90px; }
+    .faq-list summary { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<nav id="mainNav">
+  <a href="index.html" class="brand">
+    <span class="brand-name">Georgie</span>
+    <span class="brand-sub">bed &amp; breakfast</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#kamers">Kamers</a></li>
+    <li><a href="index.html#huis">Het huis</a></li>
+    <li><a href="index.html#praktisch">Praktisch</a></li>
+    <li><a href="index.html#ligging">Ligging</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+  </ul>
+  <div class="lang">
+    <a href="#" class="active">nl</a>
+    <span class="lang-sep">/</span>
+    <a href="#">fr</a>
+    <span class="lang-sep">/</span>
+    <a href="#">en</a>
+  </div>
+  <a href="index.html#boek" class="book-button">Reserveer</a>
+</nav>
+
+<!-- ============== PAGE HERO ============== -->
+<section class="page-hero">
+  <img src="images/traphal-02.jpg" alt="" class="page-hero-image">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Veelgestelde vragen</div>
+    <h1 class="page-hero-title"><em>Frequently</em><br>asked questions.</h1>
+    <p class="page-hero-lead">
+      Alles wat u zich misschien afvraagt voor u boekt. Staat uw vraag er niet bij? Stuur ons gerust een berichtje, we antwoorden onmiddellijk.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============== FAQ ============== -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-list">
+      <details>
+        <summary>Hoe werkt self check-in precies?</summary>
+        <p>Voor aankomst krijgt u een mail met de toegangscode voor de voordeur en uw kamer, plus een korte gids over het huis (wifi, verwarming, ontbijt). Inchecken kan vanaf 15:00. Komt u later aan? Geen probleem, de code werkt 24/7. Hebben we u toch eens persoonlijk willen ontvangen, laat het weten, dan staan we klaar.</p>
+      </details>
+      <details>
+        <summary>Is er parking?</summary>
+        <p>Wij hebben zelf geen private parking, maar het huis ligt in een wijk waar straatparkeren doorgaans gemakkelijk is. We staan <strong>buiten de Gentse lage-emissiezone (LEZ)</strong>, dus buitenlandse wagens hoeven zich niet te registreren. Voor de zekerheid: lees de actuele info over de <a href="https://stad.gent/nl/mobiliteit-openbare-werken/lage-emissiezone" target="_blank" rel="noopener">LEZ in Gent</a>.</p>
+      </details>
+      <details>
+        <summary>Is ontbijt inbegrepen?</summary>
+        <p>Wij serveren zelf geen ontbijt op locatie. U kan terecht in het 3-sterren hotel direct tegenover ons, dat een vers ontbijt aanbiedt met lokale producten. Geef het door bij de reservatie, dan regelen we het zodat u 's morgens gewoon kan binnenstappen. Een vermelding op uw factuur of een aparte betaling ter plaatse, beide kan.</p>
+      </details>
+      <details>
+        <summary>Kan ik vroeger inchecken of later uitchecken?</summary>
+        <p>Vroeger inchecken kan vaak, afhankelijk van of de kamer al klaar is. Laat ons weten wanneer u aankomt en we kijken wat mogelijk is. Later uitchecken (na 11:00) is doorgaans bespreekbaar tot 12:00 of 13:00, gratis bij beschikbaarheid. Vraag het de avond ervoor, dan reserveren we tijd voor het kuisen anders.</p>
+      </details>
+      <details>
+        <summary>Komt u via Brussels Airport?</summary>
+        <p>Vanuit Brussels Airport (Zaventem) neemt u de trein rechtstreeks naar Gent-Sint-Pieters (50 minuten). Vanaf het station bent u in 5 minuten bij ons. Vanuit Charleroi rijdt de <a href="https://www.flibco.com/nl" target="_blank" rel="noopener">Flibco shuttle</a> naar Sint-Pieters.</p>
+      </details>
+      <details>
+        <summary>Hoe kan ik betalen?</summary>
+        <p>Bij directe boekingen via onze website wordt uw kaart gebruikt voor de garantie of vooruitbetaling, afhankelijk van het tarief. Ter plaatse aanvaarden we Bancontact, Visa, MasterCard en cash. Bij vragen over factuur of bedrijfstarief: stuur ons een mail.</p>
+      </details>
+      <details>
+        <summary>Wat is uw annuleringsbeleid?</summary>
+        <p>Bij ons standaard tarief kan u tot 24 uur voor aankomst kosteloos annuleren. Heeft u een non-refundable tarief geboekt? Dan is annuleren helaas niet mogelijk en wordt het volledige bedrag aangerekend. De voorwaarden staan op uw bevestigingsmail.</p>
+      </details>
+      <details>
+        <summary>Zijn huisdieren welkom?</summary>
+        <p>Helaas niet. We hebben tapijten en stoffen die niet bestand zijn tegen huisdieren, en sommige gasten hebben allergieën. Hulphonden zijn uiteraard wel welkom, laat het ons weten bij de boeking.</p>
+      </details>
+      <details>
+        <summary>Mag ik roken?</summary>
+        <p>Roken is niet toegestaan in het hele huis. Buiten in de tuin of op het terras is geen probleem. Bij overtreding rekenen we een reinigingskost van €150 aan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RESERVE CTA ============== -->
+<section class="reserve-cta" id="boek">
+  <img src="images/traphal-02.jpg" alt="" class="reserve-cta-bg">
+  <div class="reserve-cta-overlay"></div>
+  <div class="reserve-cta-content">
+    <h2>Tot binnenkort.</h2>
+    <p>
+      Boek rechtstreeks via onze website voor de beste prijs en flexibele annulering, of stuur ons een berichtje als u twijfelt.
+    </p>
+    <div class="reserve-cta-buttons">
+      <a href="#" class="btn-primary">Beschikbaarheid bekijken</a>
+      <a href="https://wa.me/3290000000" class="btn-secondary">vraag het via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark-small">Georgie</div>
+      <div class="descriptor-small">bed &amp; breakfast, Gent</div>
+      <p>Een herenhuis op 5 minuten van Sint-Pieters. Self check-in, altijd bereikbaar, parkeren buiten de LEZ.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Adres</h4>
+      <p>Koningin Astridlaan 159</p>
+      <p>9000 Gent / België</p>
+      <br>
+      <p><a href="mailto:hallo@georgie.be">hallo@georgie.be</a></p>
+      <p><a href="tel:+3290000000">+32 9 000 00 00</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Hotel</h4>
+      <p><a href="index.html#kamers">Kamers</a></p>
+      <p><a href="index.html#huis">Het huis</a></p>
+      <p><a href="index.html#praktisch">Praktisch</a></p>
+      <p><a href="index.html#ligging">Ligging</a></p>
+      <p><a href="faq.html">FAQ</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Volg</h4>
+      <p><a href="#">Instagram</a></p>
+      <p><a href="https://wa.me/3290000000">WhatsApp</a></p>
+      <br>
+      <h4 style="margin-top: 24px;">Info</h4>
+      <p><a href="#">Annuleringsbeleid</a></p>
+      <p><a href="#">Algemene voorwaarden</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Georgie B&B</span>
+    <span>BTW BE 0XXX.XXX.XXX</span>
+    <span>Gent / België</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav background switch when over dark sections
+  const nav = document.getElementById('mainNav');
+  const darkSections = ['practical', 'reserve-cta'].map(c =>
+    document.querySelector('.' + c)
+  ).filter(Boolean);
+
+  function checkNavBg() {
+    const navHeight = nav.offsetHeight;
+    let isDark = false;
+    darkSections.forEach(section => {
+      const r = section.getBoundingClientRect();
+      if (r.top <= navHeight && r.bottom > navHeight) isDark = true;
+    });
+    nav.classList.toggle('over-dark', isDark);
+  }
+
+  window.addEventListener('scroll', checkNavBg, { passive: true });
+  checkNavBg();
+</script>
+
+
+</body>
+</html>
