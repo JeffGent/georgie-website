@@ -92,8 +92,8 @@ body{font-family:var(--sans);background:var(--warm-white);color:var(--text);-web
 .contact-card{background:var(--paper);border-radius:10px;padding:24px;border:1px solid var(--rule-soft)}
 .contact-card h2{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--bordeaux);margin-bottom:10px}
 .contact-card p{font-size:0.92rem;color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:8px}
-.contact-card a{color:var(--bordeaux);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule)}
-.contact-card a:hover{text-decoration-color:var(--bordeaux)}
+.contact-card a:not(.contact-btn){color:var(--bordeaux);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule)}
+.contact-card a:not(.contact-btn):hover{text-decoration-color:var(--bordeaux)}
 .contact-card strong{font-weight:500;color:var(--text)}
 .contact-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-size:0.92rem;font-weight:500;transition:all 0.2s;margin-top:8px}
 .contact-btn--whatsapp{background:#25D366;color:#fff}
