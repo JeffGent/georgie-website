@@ -1149,12 +1149,16 @@
     .room-grid { grid-template-columns: 1fr; gap: 40px; }
     .practical-grid { grid-template-columns: 1fr; gap: 50px; }
     .location-grid { grid-template-columns: 1fr; gap: 50px; }
+    .map-container { position: relative; top: auto; aspect-ratio: 4/3; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     .footer-bottom { flex-direction: column; }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 760px) {
     .usp-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; }
   }
 
@@ -1354,6 +1358,7 @@
     overflow: hidden;
     transform: translateY(20px);
     transition: transform 0.4s ease;
+    position: relative;
   }
 
   .room-modal.open .room-modal-inner {
@@ -2144,8 +2149,8 @@
 <!-- ============== ROOM MODAL ============== -->
 <div class="room-modal" id="roomModal" aria-hidden="true" role="dialog">
   <div class="room-modal-inner" role="document">
+    <button class="room-modal-close" aria-label="Sluiten">&times;</button>
     <div class="room-modal-image">
-      <button class="room-modal-close" aria-label="Sluiten">&times;</button>
       <img id="modalImg" src="" alt="">
     </div>
     <div class="room-modal-content">
