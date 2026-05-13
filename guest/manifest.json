@@ -1,7 +1,7 @@
 {
-  "name": "Georgie B&B Gent",
+  "name": "Georgie Guesthouse Gent",
   "short_name": "Georgie",
-  "description": "Alles voor je verblijf bij Georgie B&B Gent",
+  "description": "Alles voor je verblijf bij Georgie Guesthouse Gent",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
