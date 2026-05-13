@@ -2084,8 +2084,7 @@
         <div class="room-mini-name">The <em>Suite</em></div>
         <div class="room-mini-info">
           <span>32 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €245</span>
+          <span>2 pers.</span>
         </div>
       </div>
     </button>
@@ -2098,8 +2097,7 @@
         <div class="room-mini-name">Room <em>nº20</em></div>
         <div class="room-mini-info">
           <span>22 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €185</span>
+          <span>2 pers.</span>
         </div>
       </div>
     </button>
@@ -2112,8 +2110,7 @@
         <div class="room-mini-name">Room <em>nº21</em></div>
         <div class="room-mini-info">
           <span>22 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €185</span>
+          <span>2 pers.</span>
         </div>
       </div>
     </button>
@@ -2126,8 +2123,7 @@
         <div class="room-mini-name">Room <em>nº22</em></div>
         <div class="room-mini-info">
           <span>24 m²</span><span class="room-mini-dot">/</span>
-          <span>2 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €195</span>
+          <span>2 pers.</span>
         </div>
       </div>
     </button>
@@ -2140,8 +2136,7 @@
         <div class="room-mini-name">The <em>Loft</em></div>
         <div class="room-mini-info">
           <span>38 m²</span><span class="room-mini-dot">/</span>
-          <span>2 / 4 pers.</span><span class="room-mini-dot">/</span>
-          <span>vanaf €265</span>
+          <span>2 / 4 pers.</span>
         </div>
       </div>
     </button>
@@ -2162,7 +2157,6 @@
       <p class="room-modal-desc" id="modalDesc"></p>
       <div class="room-modal-specs" id="modalSpecs"></div>
       <div class="room-modal-footer">
-        <div class="room-modal-price" id="modalPrice"></div>
         <a href="#boek" class="book-button">Reserveren</a>
       </div>
     </div>
@@ -2354,9 +2348,7 @@
         ['Bed', 'Kingsize 180×200'],
         ['Oppervlakte', '± 32 m²'],
         ['Badkamer', 'Bad + douche']
-      ],
-      price: '€245',
-      priceNote: 'per nacht / inclusief btw'
+      ]
     },
     room20: {
       tag: 'Comfort / Kamer nº20',
@@ -2369,9 +2361,7 @@
         ['Bed', 'Queensize 160×200'],
         ['Oppervlakte', '± 22 m²'],
         ['Badkamer', 'Bad + douche']
-      ],
-      price: '€185',
-      priceNote: 'per nacht / inclusief btw'
+      ]
     },
     room21: {
       tag: 'Comfort / Kamer nº21',
@@ -2384,9 +2374,7 @@
         ['Bed', 'Queensize 160×200'],
         ['Oppervlakte', '± 22 m²'],
         ['Badkamer', 'Walk-in douche']
-      ],
-      price: '€185',
-      priceNote: 'per nacht / inclusief btw'
+      ]
     },
     room22: {
       tag: 'Comfort / Kamer nº22',
@@ -2399,9 +2387,7 @@
         ['Bed', 'Queensize 160×200'],
         ['Oppervlakte', '± 24 m²'],
         ['Badkamer', 'Bad + douche']
-      ],
-      price: '€195',
-      priceNote: 'per nacht / inclusief btw'
+      ]
     },
     loft: {
       tag: 'Familiekamer / Onder de nok',
@@ -2414,9 +2400,7 @@
         ['Bed', 'Kingsize + 2 stapelbedden'],
         ['Oppervlakte', '± 38 m²'],
         ['Badkamer', 'Bad + douche']
-      ],
-      price: '€265',
-      priceNote: 'per nacht / inclusief btw'
+      ]
     }
   };
 
@@ -2427,7 +2411,6 @@
   const modalSub = document.getElementById('modalSub');
   const modalDesc = document.getElementById('modalDesc');
   const modalSpecs = document.getElementById('modalSpecs');
-  const modalPrice = document.getElementById('modalPrice');
   const closeBtn = document.querySelector('.room-modal-close');
 
   function openRoom(key) {
@@ -2442,7 +2425,6 @@
     modalSpecs.innerHTML = r.specs.map(s =>
       `<div class="spec"><span class="spec-label">${s[0]}</span><span class="spec-value">${s[1]}</span></div>`
     ).join('');
-    modalPrice.innerHTML = `<strong>${r.price}</strong> <em>${r.priceNote}</em>`;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -2476,11 +2458,18 @@
   (function() {
     var wa = document.querySelector('.wa-float');
     if (!wa) return;
-    function check() {
-      wa.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
-    }
-    window.addEventListener('scroll', check, { passive: true });
-    check();
+    var hideTargets = document.querySelectorAll('.reserve-cta, footer');
+    wa.classList.add('visible');
+    if (!hideTargets.length) return;
+    var hiding = new Set();
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) hiding.add(e.target);
+        else hiding.delete(e.target);
+      });
+      wa.classList.toggle('visible', hiding.size === 0);
+    }, { threshold: 0 });
+    hideTargets.forEach(function(el) { observer.observe(el); });
   })();
 </script>
 
