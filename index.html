@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
 <title>Georgie B&B Gent een herenhuis op 5 min van Sint-Pieters</title>
 <meta name="description" content="Georgie is een bed & breakfast in een gerestaureerd herenhuis in Gent, op 5 minuten wandelen van Sint-Pieters. Vier kamers en een familieloft, self check-in, parkeren buiten de LEZ.">
 <style>
@@ -727,13 +728,41 @@
     background: var(--paper);
     border: 1px solid var(--rule);
     overflow: hidden;
+    position: sticky;
+    top: 100px;
   }
 
-  .map-container iframe {
+  .map-container iframe,
+  .map-container > div {
     width: 100%;
     height: 100%;
     border: 0;
-    filter: grayscale(0.6) sepia(0.15);
+  }
+
+  .map-container .mapboxgl-popup-content {
+    font-family: var(--sans);
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .map-container .mapboxgl-popup-content h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--bordeaux);
+    margin-bottom: 4px;
+  }
+  .map-container .mapboxgl-popup-content p {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .map-container .mapboxgl-popup-close-button {
+    font-size: 18px;
+    padding: 4px 8px;
+    color: var(--text-soft);
   }
 
   .location-text h2 {
@@ -768,6 +797,20 @@
     padding: 14px 0;
     border-top: 1px solid var(--rule);
     align-items: baseline;
+    cursor: pointer;
+    transition: background 0.2s ease, padding 0.2s ease;
+  }
+
+  .location-list li:hover {
+    background: rgba(94, 30, 38, 0.04);
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .location-list li.active {
+    background: rgba(94, 30, 38, 0.07);
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .location-list li:last-child { border-bottom: 1px solid var(--rule); }
@@ -2111,13 +2154,7 @@
 <!-- ============== LOCATION ============== -->
 <section class="location" id="ligging">
   <div class="location-grid">
-    <div class="map-container reveal">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0!2d3.7174!3d51.0353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDAyJzA3LjEiTiAzwrA0MyczMC4wIkU!5e0!3m2!1snl!2sbe!4v1700000000000"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Locatie Georgie B&B Gent"></iframe>
-    </div>
+    <div id="map" class="map-container reveal"></div>
 
     <div class="location-text reveal">
       <div class="section-header-eyebrow">04 / Ligging</div>
@@ -2127,13 +2164,23 @@
         fiets van het centrum. Voor de deur: het Citadelpark, het MSK en
         het S.M.A.K. Met tram 1 staat u in 7 minuten aan de Korenmarkt.
       </p>
+      <p style="font-size:0.95rem;color:var(--text-muted);font-style:italic;">Klik een bestemming hieronder om de route te zien.</p>
       <ul class="location-list">
-        <li><span class="dist">5 min</span><span class="place">Gent-Sint-Pieters Station</span></li>
-        <li><span class="dist">3 min</span><span class="place">Citadelpark / MSK / S.M.A.K.</span></li>
-        <li><span class="dist">7 min</span><span class="place">Tram 1 → Korenmarkt</span></li>
-        <li><span class="dist">10 min</span><span class="place">Historisch centrum (fiets)</span></li>
-        <li><span class="dist">25 min</span><span class="place">Historisch centrum (te voet)</span></li>
-        <li><span class="dist">50 min</span><span class="place">Brussels Airport (trein)</span></li>
+        <li data-lng="3.7107" data-lat="51.0371" data-mode="walking" data-name="Gent-Sint-Pieters Station" data-desc="Op 5 minuten wandelen via het stationspark.">
+          <span class="dist">5 min</span><span class="place">Gent-Sint-Pieters Station</span>
+        </li>
+        <li data-lng="3.7238" data-lat="51.0384" data-mode="walking" data-name="Citadelpark / MSK / S.M.A.K." data-desc="Voor de deur: stadspark en twee musea naast elkaar.">
+          <span class="dist">3 min</span><span class="place">Citadelpark / MSK / S.M.A.K.</span>
+        </li>
+        <li data-lng="3.72184" data-lat="51.05473" data-mode="driving" data-name="Korenmarkt (met tram 1)" data-desc="Tram 1 vanaf Sint-Pieters / 7 minuten tot het centrale plein.">
+          <span class="dist">7 min</span><span class="place">Tram 1 → Korenmarkt</span>
+        </li>
+        <li data-lng="3.72184" data-lat="51.05473" data-mode="cycling" data-name="Historisch centrum" data-desc="Vlotte fietsroute via de Coupure en het centrum.">
+          <span class="dist">10 min</span><span class="place">Historisch centrum (fiets)</span>
+        </li>
+        <li data-lng="3.72184" data-lat="51.05473" data-mode="walking" data-name="Historisch centrum" data-desc="Te voet via het Citadelpark, langs MSK en de Leie.">
+          <span class="dist">25 min</span><span class="place">Historisch centrum (te voet)</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -2423,6 +2470,109 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeTermsModal();
   });
+</script>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+<script>
+(function() {
+  var mapEl = document.getElementById('map');
+  if (!mapEl || typeof mapboxgl === 'undefined') return;
+
+  var GEORGIE = [3.71404, 51.03607];
+  var BORDEAUX = '#5e1e26';
+  var GOLD = '#a5824b';
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmdlbnQiLCJhIjoiY21vNW9rZ2NjMHp3aDJ3c2xhanR1OTZqZiJ9.xfabqRzqY6H_ENgpAgLiEg';
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: [3.7180, 51.0440],
+    zoom: 13,
+    attributionControl: false
+  });
+  map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+
+  var markers = [];
+
+  function clearMap() {
+    markers.forEach(function(m) { m.remove(); });
+    markers = [];
+    if (map.getSource('route')) {
+      map.removeLayer('route-line');
+      map.removeSource('route');
+    }
+  }
+
+  function pinElement(color, size) {
+    var el = document.createElement('div');
+    var s = size || 14;
+    el.style.cssText = 'width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.25);background:' + color + ';cursor:pointer;';
+    return el;
+  }
+
+  function addMarker(coords, color, popupHtml, size) {
+    var popup = new mapboxgl.Popup({ offset: 14, closeButton: false }).setHTML(popupHtml);
+    var m = new mapboxgl.Marker({ element: pinElement(color, size) }).setLngLat(coords).setPopup(popup).addTo(map);
+    markers.push(m);
+    return m;
+  }
+
+  function showDefault() {
+    clearMap();
+    addMarker(GEORGIE, BORDEAUX, '<h3>Georgie B&B</h3><p>Koningin Astridlaan 159</p>', 18);
+    document.querySelectorAll('.location-list li').forEach(function(li) {
+      var coords = [parseFloat(li.dataset.lng), parseFloat(li.dataset.lat)];
+      addMarker(coords, GOLD, '<h3>' + li.dataset.name + '</h3><p>' + li.dataset.desc + '</p>');
+    });
+    map.fitBounds([[3.706, 51.034], [3.728, 51.058]], { padding: 40, duration: 800 });
+    document.querySelectorAll('.location-list li').forEach(function(l) { l.classList.remove('active'); });
+  }
+
+  function showRoute(li) {
+    clearMap();
+    var dest = [parseFloat(li.dataset.lng), parseFloat(li.dataset.lat)];
+    var mode = li.dataset.mode || 'walking';
+
+    addMarker(GEORGIE, BORDEAUX, '<h3>Georgie B&B</h3><p>Vertrekpunt</p>', 18);
+    var destMarker = addMarker(dest, GOLD, '<h3>' + li.dataset.name + '</h3><p>' + li.dataset.desc + '</p>');
+    destMarker.togglePopup();
+
+    var coordStr = GEORGIE[0] + ',' + GEORGIE[1] + ';' + dest[0] + ',' + dest[1];
+    var url = 'https://api.mapbox.com/directions/v5/mapbox/' + mode + '/' + coordStr
+      + '?geometries=geojson&overview=full&access_token=' + mapboxgl.accessToken;
+
+    fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var line = (data.routes && data.routes[0]) ? data.routes[0].geometry.coordinates : [GEORGIE, dest];
+        if (map.getSource('route')) {
+          map.getSource('route').setData({ type: 'Feature', geometry: { type: 'LineString', coordinates: line } });
+        } else {
+          map.addSource('route', { type: 'geojson', data: { type: 'Feature', geometry: { type: 'LineString', coordinates: line } } });
+          map.addLayer({ id: 'route-line', type: 'line', source: 'route', paint: { 'line-color': GOLD, 'line-width': 3, 'line-opacity': 0.7 } });
+        }
+      })
+      .catch(function() {});
+
+    var bounds = new mapboxgl.LngLatBounds();
+    bounds.extend(GEORGIE);
+    bounds.extend(dest);
+    map.fitBounds(bounds, { padding: 60, maxZoom: 15.5, duration: 800 });
+
+    document.querySelectorAll('.location-list li').forEach(function(l) { l.classList.toggle('active', l === li); });
+  }
+
+  document.querySelectorAll('.location-list li').forEach(function(li) {
+    li.addEventListener('click', function() {
+      if (li.classList.contains('active')) showDefault();
+      else showRoute(li);
+    });
+  });
+
+  map.on('load', showDefault);
+})();
 </script>
 
 </body>
