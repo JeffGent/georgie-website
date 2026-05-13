@@ -1580,11 +1580,14 @@
     overflow: hidden;
     background: var(--bordeaux);
     margin-bottom: 16px;
+    aspect-ratio: 3 / 2;
   }
   .room-mini-img img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
     transition: transform 0.6s ease;
   }
   .room-mini:hover .room-mini-img img { transform: scale(1.05); }
