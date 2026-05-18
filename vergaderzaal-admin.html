@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Vergaderzaal — Beheer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bordeaux: #5e1e26;
+    --bordeaux-deep: #4a161e;
+    --cream: #f5f0e8;
+    --warm-white: #faf7f0;
+    --paper: #f3ede2;
+    --black: #141414;
+    --soft-black: #2a2323;
+    --text-muted: #6a625e;
+    --text-soft: #8a807a;
+    --gold: #a5824b;
+    --rule: #d8cfc3;
+    --rule-soft: #e6ddd1;
+    --green: #5e7a4a;
+    --green-soft: #d4e1c9;
+    --amber: #b8893a;
+    --red: #9a3c3c;
+    --red-soft: #ebd3d3;
+
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--soft-black);
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ===== LOGIN ===== */
+  .login-screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--paper);
+  }
+  .login-box {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    padding: 50px 40px;
+    max-width: 380px;
+    width: 100%;
+  }
+  .login-box h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .login-box h1 em { color: var(--bordeaux); font-style: italic; }
+  .login-box p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .login-box input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--soft-black);
+  }
+  .login-box input:focus {
+    outline: none;
+    border-color: var(--bordeaux);
+  }
+  .login-box button {
+    width: 100%;
+    background: var(--bordeaux);
+    color: var(--cream);
+    border: 1px solid var(--bordeaux);
+    padding: 14px 24px;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--sans);
+  }
+  .login-box button:hover { background: var(--bordeaux-deep); }
+  .login-error {
+    color: var(--red);
+    font-size: 0.85rem;
+    margin-top: 12px;
+    min-height: 1.2em;
+  }
+
+  /* ===== APP ===== */
+  .app { display: none; }
+  .app.open { display: block; }
+
+  header.topbar {
+    background: var(--bordeaux-deep);
+    color: var(--cream);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  header.topbar .title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+  header.topbar .title em { color: var(--gold); font-style: italic; }
+  header.topbar .meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.78rem;
+    color: rgba(245, 240, 232, 0.7);
+  }
+  header.topbar a {
+    color: rgba(245, 240, 232, 0.85);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  header.topbar a:hover { color: var(--gold); }
+
+  .layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 28px;
+  }
+  .card + .card { margin-top: 24px; }
+
+  .card h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .card h2 em { color: var(--bordeaux); font-style: italic; }
+  .card .sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* ===== CALENDAR ===== */
+  .cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .cal-month-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--black);
+  }
+  .cal-nav {
+    display: flex;
+    gap: 6px;
+  }
+  .cal-nav button {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--soft-black);
+    font-family: var(--sans);
+  }
+  .cal-nav button:hover {
+    border-color: var(--bordeaux);
+    color: var(--bordeaux);
+  }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-dow {
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 8px 0;
+  }
+  .cal-cell {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    min-height: 92px;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--sans);
+  }
+  .cal-cell.empty {
+    background: transparent;
+    border: none;
+  }
+  .cal-cell.past {
+    opacity: 0.35;
+  }
+  .cal-cell.today { border-color: var(--bordeaux); border-width: 2px; }
+  .cal-cell .day-num {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .cal-cell .slot-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+  }
+  .cal-cell .slot-bar {
+    height: 14px;
+    background: var(--green-soft);
+    color: var(--green);
+    border: 1px solid transparent;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cal-cell .slot-bar:hover {
+    border-color: currentColor;
+  }
+  .cal-cell .slot-bar.booked {
+    background: var(--red-soft);
+    color: var(--red);
+  }
+  .cal-cell.past .slot-bar { pointer-events: none; }
+
+  .cal-help {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .actions button, .actions label.fbtn {
+    background: var(--warm-white);
+    color: var(--soft-black);
+    border: 1px solid var(--rule);
+    padding: 9px 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.2s ease;
+  }
+  .actions button:hover, .actions label.fbtn:hover {
+    border-color: var(--bordeaux);
+    color: var(--bordeaux);
+  }
+  .actions button.primary {
+    background: var(--bordeaux);
+    color: var(--cream);
+    border-color: var(--bordeaux);
+  }
+  .actions button.primary:hover {
+    background: var(--bordeaux-deep);
+    color: var(--cream);
+  }
+  .actions button.danger {
+    color: var(--red);
+    border-color: var(--rule);
+  }
+  .actions button.danger:hover {
+    background: var(--red);
+    color: var(--cream);
+    border-color: var(--red);
+  }
+
+  /* ===== REQUESTS ===== */
+  .filter-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .filter-tabs button {
+    background: transparent;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .filter-tabs button.active {
+    color: var(--bordeaux);
+    border-bottom-color: var(--bordeaux);
+  }
+  .filter-tabs button .count {
+    margin-left: 6px;
+    background: var(--rule-soft);
+    color: var(--soft-black);
+    font-size: 0.7rem;
+    padding: 1px 7px;
+    border-radius: 10px;
+  }
+  .filter-tabs button.active .count {
+    background: var(--bordeaux);
+    color: var(--cream);
+  }
+
+  .requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .req {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    padding: 16px;
+  }
+  .req.confirmed { border-left: 3px solid var(--green); }
+  .req.declined { border-left: 3px solid var(--red); opacity: 0.65; }
+  .req.pending { border-left: 3px solid var(--amber); }
+
+  .req .req-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .req .req-date {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--black);
+  }
+  .req .req-status {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .req .req-status.confirmed { color: var(--green); }
+  .req .req-status.declined { color: var(--red); }
+  .req .req-status.pending { color: var(--amber); }
+
+  .req .req-slots {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .req .req-body {
+    font-size: 0.85rem;
+    color: var(--soft-black);
+    line-height: 1.6;
+  }
+  .req .req-body .row { margin-bottom: 4px; }
+  .req .req-body strong { color: var(--black); font-weight: 500; }
+  .req .req-body .notes {
+    margin-top: 6px;
+    padding: 8px 10px;
+    background: var(--paper);
+    font-style: italic;
+    color: var(--text-muted);
+    border-left: 2px solid var(--rule);
+  }
+  .req .req-total {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--bordeaux);
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+
+  .req-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .req-actions button {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft-black);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .req-actions button.ok { color: var(--green); }
+  .req-actions button.ok:hover {
+    background: var(--green);
+    color: var(--cream);
+    border-color: var(--green);
+  }
+  .req-actions button.no { color: var(--red); }
+  .req-actions button.no:hover {
+    background: var(--red);
+    color: var(--cream);
+    border-color: var(--red);
+  }
+  .req-actions button.del:hover { background: var(--rule-soft); }
+  .req-actions a.mailto {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft-black);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .req-actions a.mailto:hover { color: var(--bordeaux); border-color: var(--bordeaux); }
+
+  .empty-state {
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+  }
+
+  /* ===== ADD MANUAL BOOKING ===== */
+  .manual-block {
+    background: var(--warm-white);
+    border: 1px dashed var(--rule);
+    padding: 18px;
+    margin-top: 14px;
+    display: none;
+  }
+  .manual-block.open { display: block; }
+  .manual-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .manual-row input, .manual-row select, .manual-row textarea {
+    width: 100%;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    padding: 8px 10px;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+  }
+  .manual-row textarea { grid-column: 1 / -1; resize: vertical; min-height: 60px; }
+  .manual-slots {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .manual-slots label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .manual-slots input { accent-color: var(--bordeaux); }
+  .manual-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--soft-black);
+    color: var(--cream);
+    padding: 14px 20px;
+    font-size: 0.88rem;
+    z-index: 100;
+    max-width: 360px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1100px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .layout { padding: 16px; }
+    .cal-cell { min-height: 70px; }
+    .cal-cell .slot-bar { height: 11px; font-size: 0.55rem; }
+    .req .req-head { flex-direction: column; gap: 4px; }
+  }
+
+  /* export modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 15, 15, 0.6);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal.open { display: flex; }
+  .modal-inner {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    max-width: 640px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 32px;
+  }
+  .modal-inner h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .modal-inner h3 em { color: var(--bordeaux); font-style: italic; }
+  .modal-inner p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .modal-inner textarea {
+    width: 100%;
+    height: 220px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 12px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    color: var(--soft-black);
+    resize: vertical;
+  }
+  .modal-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: flex-end;
+  }
+  .modal-actions button {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 9px 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft-black);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .modal-actions button.primary {
+    background: var(--bordeaux);
+    color: var(--cream);
+    border-color: var(--bordeaux);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div class="login-screen" id="loginScreen">
+  <form class="login-box" id="loginForm">
+    <h1>Vergaderzaal <em>beheer</em></h1>
+    <p>Enkel voor uitbaters van Georgie. Geef het wachtwoord in om de kalender en aanvragen te beheren.</p>
+    <input type="password" id="loginPw" autocomplete="current-password" placeholder="Wachtwoord" autofocus required>
+    <button type="submit">Open beheer</button>
+    <div class="login-error" id="loginError"></div>
+  </form>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="title">Vergaderzaal <em>beheer</em></div>
+    <div class="meta">
+      <span id="lastSaved">—</span>
+      <a href="vergaderzaal.html" target="_blank">Bekijk publieke pagina ↗</a>
+      <a href="#" id="logoutBtn">Uitloggen</a>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- LEFT: Calendar -->
+    <div>
+      <div class="card">
+        <h2>Beschikbaarheid <em>per dagdeel</em></h2>
+        <div class="sub">Klik een dagdeel aan om het te blokkeren of vrij te geven. Aanvragen die u bevestigt blokkeren automatisch.</div>
+
+        <div class="cal-header">
+          <div class="cal-month-label" id="calMonthLabel">—</div>
+          <div class="cal-nav">
+            <button type="button" id="calPrev" aria-label="Vorige maand">‹</button>
+            <button type="button" id="calToday" aria-label="Vandaag">Vandaag</button>
+            <button type="button" id="calNext" aria-label="Volgende maand">›</button>
+          </div>
+        </div>
+
+        <div class="cal-grid" id="calGrid"></div>
+
+        <div class="cal-help">
+          <strong style="color: var(--green);">groen</strong> = vrij,
+          <strong style="color: var(--red);">rood</strong> = geboekt.
+          V = Voormiddag (9-13), N = Namiddag (13:30-17:30), A = Avond (18-22).
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary" id="exportBtn">Export JSON</button>
+          <button type="button" id="importBtn">Import JSON</button>
+          <button type="button" id="discardBtn">Verwerp lokale wijzigingen</button>
+          <button type="button" class="danger" id="clearAllBtn">Wis alle blokkades</button>
+        </div>
+        <p style="margin-top: 14px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.6;">
+          Wijzigingen die u hier maakt zijn enkel in deze browser opgeslagen. Om ze publiek
+          te maken: klik <strong>Export JSON</strong> en plaats het bestand op
+          <code style="font-size:0.8rem;background:var(--cream);padding:1px 6px;">vergaderzaal/availability.json</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Requests -->
+    <div>
+      <div class="card">
+        <h2>Aanvragen <em>&amp; boekingen</em></h2>
+        <div class="sub">Aanvragen komen toe in uw mailbox. Wat u hier ziet zijn kopieën die de website opslaat in deze browser bij elke verzending.</div>
+
+        <div class="filter-tabs">
+          <button type="button" class="active" data-filter="pending">Open <span class="count" id="cntPending">0</span></button>
+          <button type="button" data-filter="confirmed">Bevestigd <span class="count" id="cntConfirmed">0</span></button>
+          <button type="button" data-filter="declined">Geweigerd <span class="count" id="cntDeclined">0</span></button>
+          <button type="button" data-filter="all">Alle <span class="count" id="cntAll">0</span></button>
+        </div>
+
+        <div class="requests-list" id="requestsList"></div>
+
+        <div class="actions" style="margin-top: 20px;">
+          <button type="button" id="addManualBtn">+ Boeking manueel toevoegen</button>
+        </div>
+
+        <div class="manual-block" id="manualBlock">
+          <div class="manual-row">
+            <input type="date" id="mDate">
+            <select id="mAttendees"></select>
+          </div>
+          <div class="manual-slots" id="mSlots"></div>
+          <div class="manual-row" style="margin-top:10px;">
+            <input type="text" id="mName" placeholder="Naam / organisatie">
+            <input type="email" id="mEmail" placeholder="E-mail (optioneel)">
+          </div>
+          <div class="manual-row">
+            <textarea id="mNotes" placeholder="Opmerkingen (optioneel)"></textarea>
+          </div>
+          <div class="manual-actions">
+            <button type="button" class="primary" id="mSave">Voeg toe als bevestigd</button>
+            <button type="button" id="mCancel">Annuleer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== EXPORT / IMPORT MODAL ===== -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <h3 id="modalTitle">Export <em>availability.json</em></h3>
+    <p id="modalDesc">Kopieer de inhoud hieronder en sla het op als <code style="background:var(--cream);padding:1px 6px;">vergaderzaal/availability.json</code>.</p>
+    <textarea id="modalJson"></textarea>
+    <div class="modal-actions">
+      <button type="button" id="modalCopy">Kopieer naar klembord</button>
+      <button type="button" id="modalDownload">Download bestand</button>
+      <button type="button" class="primary" id="modalApply" style="display:none;">Importeer</button>
+      <button type="button" id="modalClose">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="vergaderzaal/vergaderzaal-data.js"></script>
+<script>
+(function () {
+  // -------------------------------------------------------------
+  // SIMPLE PASSWORD GATE
+  // Dit is geen echte beveiliging — enkel een hindernis voor wie de URL
+  // toevallig kent. De admin-pagina is publiek bereikbaar. Pas het wachtwoord
+  // hieronder aan voor u de site live zet.
+  // -------------------------------------------------------------
+  const ADMIN_PASSWORD = 'georgie2026';
+  const SESSION_KEY = 'georgie.vergaderzaal.session';
+
+  const D = window.VergaderzaalData;
+  const $ = (s) => document.querySelector(s);
+
+  // ----- elements -----
+  const loginScreen = $('#loginScreen');
+  const app = $('#app');
+  const loginForm = $('#loginForm');
+  const loginPw = $('#loginPw');
+  const loginError = $('#loginError');
+
+  // ----- session -----
+  function isUnlocked() { return sessionStorage.getItem(SESSION_KEY) === 'open'; }
+  function unlock() { sessionStorage.setItem(SESSION_KEY, 'open'); }
+  function lock() { sessionStorage.removeItem(SESSION_KEY); }
+
+  if (isUnlocked()) {
+    loginScreen.style.display = 'none';
+    app.classList.add('open');
+    initApp();
+  } else {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (loginPw.value === ADMIN_PASSWORD) {
+        unlock();
+        loginScreen.style.display = 'none';
+        app.classList.add('open');
+        initApp();
+      } else {
+        loginError.textContent = 'Wachtwoord klopt niet.';
+        loginPw.value = '';
+        loginPw.focus();
+      }
+    });
+  }
+
+  // -------------------------------------------------------------
+  // APP
+  // -------------------------------------------------------------
+  function initApp() {
+
+    // ----- state -----
+    let viewYear, viewMonth;
+    let unavailable = new Set();
+    let publicSnapshot = []; // last fetched availability.json
+    let currentFilter = 'pending';
+
+    const MONTHS_NL = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+    const DOW_NL = ['ma','di','wo','do','vr','za','zo'];
+    const DAYS_NL = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+
+    // ----- elements -----
+    const elGrid = $('#calGrid');
+    const elLabel = $('#calMonthLabel');
+    const elPrev = $('#calPrev');
+    const elNext = $('#calNext');
+    const elToday = $('#calToday');
+    const elLastSaved = $('#lastSaved');
+
+    // ----- bootstrap -----
+    const now = new Date();
+    viewYear = now.getFullYear();
+    viewMonth = now.getMonth();
+
+    bootstrapAvailability();
+
+    // ----- availability bootstrap -----
+    function bootstrapAvailability() {
+      D.fetchPublicAvailability().then(list => {
+        publicSnapshot = list;
+        const admin = D.loadAdminAvailability();
+        if (admin) {
+          unavailable = new Set(admin.unavailable);
+          elLastSaved.textContent = 'lokaal bewerkt ' + formatTimeAgo(admin.updated);
+        } else {
+          unavailable = new Set(list);
+          elLastSaved.textContent = 'gesynced met publieke JSON';
+        }
+        renderCalendar();
+      });
+    }
+
+    function formatTimeAgo(iso) {
+      const d = new Date(iso);
+      const diff = (Date.now() - d.getTime()) / 1000;
+      if (diff < 60) return 'net';
+      if (diff < 3600) return Math.round(diff / 60) + ' min geleden';
+      if (diff < 86400) return Math.round(diff / 3600) + ' u geleden';
+      return Math.round(diff / 86400) + ' d geleden';
+    }
+
+    function persistAvailability() {
+      const payload = D.saveAdminAvailability(Array.from(unavailable));
+      elLastSaved.textContent = 'lokaal bewerkt net';
+    }
+
+    // ----- calendar -----
+    elPrev.addEventListener('click', () => {
+      viewMonth--;
+      if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+      renderCalendar();
+    });
+    elNext.addEventListener('click', () => {
+      viewMonth++;
+      if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+      renderCalendar();
+    });
+    elToday.addEventListener('click', () => {
+      const t = new Date();
+      viewYear = t.getFullYear();
+      viewMonth = t.getMonth();
+      renderCalendar();
+    });
+
+    function renderCalendar() {
+      elLabel.textContent = MONTHS_NL[viewMonth] + ' ' + viewYear;
+      elGrid.innerHTML = '';
+      const today = new Date(); today.setHours(0,0,0,0);
+
+      for (let i = 0; i < 7; i++) {
+        const h = document.createElement('div');
+        h.className = 'cal-dow';
+        h.textContent = DOW_NL[i];
+        elGrid.appendChild(h);
+      }
+
+      const firstOfMonth = new Date(viewYear, viewMonth, 1);
+      let offset = firstOfMonth.getDay() - 1;
+      if (offset < 0) offset = 6;
+      for (let i = 0; i < offset; i++) {
+        const c = document.createElement('div');
+        c.className = 'cal-cell empty';
+        elGrid.appendChild(c);
+      }
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(viewYear, viewMonth, d);
+        const iso = D.isoDate(date);
+        const cell = document.createElement('div');
+        cell.className = 'cal-cell';
+        if (date < today) cell.classList.add('past');
+        if (iso === D.todayIso()) cell.classList.add('today');
+
+        const num = document.createElement('span');
+        num.className = 'day-num';
+        num.textContent = d;
+        cell.appendChild(num);
+
+        const bars = document.createElement('span');
+        bars.className = 'slot-bars';
+        D.SLOT_DEFS.forEach(s => {
+          const key = D.slotKey(iso, s.key);
+          const booked = unavailable.has(key);
+          const bar = document.createElement('button');
+          bar.type = 'button';
+          bar.className = 'slot-bar' + (booked ? ' booked' : '');
+          bar.textContent = s.key === 'morning' ? 'V' : s.key === 'afternoon' ? 'N' : 'A';
+          bar.title = s.label + ' — ' + (booked ? 'geboekt (klik om vrij te geven)' : 'vrij (klik om te blokkeren)');
+          bar.addEventListener('click', () => {
+            if (date < today) return;
+            if (booked) unavailable.delete(key);
+            else unavailable.add(key);
+            persistAvailability();
+            renderCalendar();
+            renderRequests();
+          });
+          bars.appendChild(bar);
+        });
+        cell.appendChild(bars);
+        elGrid.appendChild(cell);
+      }
+    }
+
+    // ----- export / import -----
+    $('#exportBtn').addEventListener('click', openExportModal);
+    $('#importBtn').addEventListener('click', openImportModal);
+    $('#discardBtn').addEventListener('click', () => {
+      if (!confirm('Lokale wijzigingen verwerpen en terugkeren naar de gepubliceerde JSON?')) return;
+      localStorage.removeItem('georgie.vergaderzaal.availability');
+      bootstrapAvailability();
+      toast('Teruggezet naar publieke JSON.');
+    });
+    $('#clearAllBtn').addEventListener('click', () => {
+      if (!confirm('Echt alle blokkades wissen? Dit verwijdert ook bevestigde boekingen uit de kalender (de aanvragen zelf blijven staan).')) return;
+      unavailable = new Set();
+      persistAvailability();
+      renderCalendar();
+      renderRequests();
+    });
+
+    function openExportModal() {
+      const payload = {
+        updated: new Date().toISOString(),
+        unavailable: Array.from(unavailable).sort()
+      };
+      const json = JSON.stringify(payload, null, 2);
+      $('#modalTitle').innerHTML = 'Export <em>availability.json</em>';
+      $('#modalDesc').innerHTML = 'Kopieer de inhoud of download het bestand en plaats het in de repo op <code style="background:var(--cream);padding:1px 6px;">vergaderzaal/availability.json</code>.';
+      $('#modalJson').value = json;
+      $('#modalJson').readOnly = true;
+      $('#modalApply').style.display = 'none';
+      $('#modalDownload').style.display = 'inline-block';
+      $('#modal').classList.add('open');
+    }
+
+    function openImportModal() {
+      $('#modalTitle').innerHTML = 'Importeer <em>availability.json</em>';
+      $('#modalDesc').innerHTML = 'Plak hieronder de inhoud van een availability.json bestand om die lokaal in te laden.';
+      $('#modalJson').value = '';
+      $('#modalJson').readOnly = false;
+      $('#modalApply').style.display = 'inline-block';
+      $('#modalDownload').style.display = 'none';
+      $('#modal').classList.add('open');
+    }
+
+    $('#modalClose').addEventListener('click', () => $('#modal').classList.remove('open'));
+    $('#modalCopy').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText($('#modalJson').value);
+        toast('Gekopieerd naar klembord.');
+      } catch (e) {
+        $('#modalJson').select();
+        document.execCommand('copy');
+        toast('Gekopieerd (fallback).');
+      }
+    });
+    $('#modalDownload').addEventListener('click', () => {
+      const blob = new Blob([$('#modalJson').value], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'availability.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      toast('Bestand gedownload.');
+    });
+    $('#modalApply').addEventListener('click', () => {
+      try {
+        const data = JSON.parse($('#modalJson').value);
+        if (!Array.isArray(data.unavailable)) throw new Error('format');
+        unavailable = new Set(data.unavailable);
+        persistAvailability();
+        renderCalendar();
+        renderRequests();
+        $('#modal').classList.remove('open');
+        toast('Geïmporteerd.');
+      } catch (e) {
+        toast('Ongeldige JSON. Verwacht: { "unavailable": [...] }');
+      }
+    });
+
+    // ----- requests -----
+    document.querySelectorAll('.filter-tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderRequests();
+      });
+    });
+
+    function renderRequests() {
+      const all = D.loadRequests();
+      const counts = {
+        pending: all.filter(r => r.status === 'pending').length,
+        confirmed: all.filter(r => r.status === 'confirmed').length,
+        declined: all.filter(r => r.status === 'declined').length,
+        all: all.length
+      };
+      $('#cntPending').textContent = counts.pending;
+      $('#cntConfirmed').textContent = counts.confirmed;
+      $('#cntDeclined').textContent = counts.declined;
+      $('#cntAll').textContent = counts.all;
+
+      const filtered = currentFilter === 'all' ? all : all.filter(r => r.status === currentFilter);
+      const list = $('#requestsList');
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty-state">Geen aanvragen in deze lijst.</div>';
+        return;
+      }
+      list.innerHTML = '';
+      filtered.forEach(req => list.appendChild(renderRequestRow(req)));
+    }
+
+    function renderRequestRow(req) {
+      const row = document.createElement('div');
+      row.className = 'req ' + (req.status || 'pending');
+
+      const [y, m, d] = req.date.split('-').map(Number);
+      const dateObj = new Date(y, m - 1, d);
+      const dateLabel = DAYS_NL[dateObj.getDay()] + ' ' + d + ' ' + MONTHS_NL[m - 1] + ' ' + y;
+      const slotLabel = (req.slotLabels || []).join(' + ');
+
+      const addonsHtml = req.addons && req.addons.length
+        ? '<div class="row"><strong>Extra\'s:</strong> ' +
+          req.addons.map(k => {
+            const a = D.ADDONS.find(x => x.key === k);
+            return a ? a.label : k;
+          }).join(', ') + '</div>'
+        : '';
+
+      const notesHtml = req.notes ? '<div class="notes">' + escapeHtml(req.notes) + '</div>' : '';
+
+      row.innerHTML = `
+        <div class="req-head">
+          <div class="req-date">${dateLabel}</div>
+          <div class="req-status ${req.status || 'pending'}">${statusLabel(req.status)}</div>
+        </div>
+        <div class="req-slots">${slotLabel}</div>
+        <div class="req-body">
+          <div class="row"><strong>${escapeHtml(req.name || '—')}</strong>${req.organisation ? ' · ' + escapeHtml(req.organisation) : ''}</div>
+          <div class="row">${escapeHtml(req.email || '')}${req.phone ? ' · ' + escapeHtml(req.phone) : ''}</div>
+          <div class="row">${req.attendees || 1} ${req.attendees === 1 ? 'persoon' : 'personen'}${req.kind ? ' · ' + escapeHtml(req.kind) : ''}</div>
+          ${addonsHtml}
+          ${notesHtml}
+          ${req.estimatedTotal ? '<div class="req-total">' + D.formatPrice(req.estimatedTotal) + ' (excl. btw)</div>' : ''}
+        </div>
+      `;
+
+      const actions = document.createElement('div');
+      actions.className = 'req-actions';
+
+      if (req.status !== 'confirmed') {
+        const ok = document.createElement('button');
+        ok.className = 'ok';
+        ok.textContent = 'Bevestig';
+        ok.addEventListener('click', () => confirmRequest(req));
+        actions.appendChild(ok);
+      }
+      if (req.status !== 'declined') {
+        const no = document.createElement('button');
+        no.className = 'no';
+        no.textContent = 'Weiger';
+        no.addEventListener('click', () => declineRequest(req));
+        actions.appendChild(no);
+      }
+      if (req.email) {
+        const mail = document.createElement('a');
+        mail.className = 'mailto';
+        mail.href = 'mailto:' + req.email + '?subject=' + encodeURIComponent('Re: aanvraag vergaderzaal ' + dateLabel);
+        mail.textContent = '↗ mail';
+        actions.appendChild(mail);
+      }
+      const del = document.createElement('button');
+      del.className = 'del';
+      del.textContent = 'Verwijder';
+      del.addEventListener('click', () => deleteRequest(req));
+      actions.appendChild(del);
+
+      row.appendChild(actions);
+      return row;
+    }
+
+    function statusLabel(s) {
+      if (s === 'confirmed') return 'Bevestigd';
+      if (s === 'declined') return 'Geweigerd';
+      return 'Open';
+    }
+
+    function confirmRequest(req) {
+      D.updateRequest(req.id, { status: 'confirmed' });
+      (req.slots || []).forEach(k => unavailable.add(k));
+      persistAvailability();
+      renderCalendar();
+      renderRequests();
+      toast('Bevestigd en geblokkeerd in de kalender.');
+    }
+
+    function declineRequest(req) {
+      D.updateRequest(req.id, { status: 'declined' });
+      // free up the slots if they were blocked because of this request
+      (req.slots || []).forEach(k => unavailable.delete(k));
+      persistAvailability();
+      renderCalendar();
+      renderRequests();
+      toast('Aanvraag geweigerd, dagdelen vrijgegeven.');
+    }
+
+    function deleteRequest(req) {
+      if (!confirm('Aanvraag verwijderen uit de lijst? De blokkades in de kalender blijven staan.')) return;
+      D.removeRequest(req.id);
+      renderRequests();
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // ----- manual booking -----
+    const mBlock = $('#manualBlock');
+    const mDate = $('#mDate');
+    const mAtt = $('#mAttendees');
+    const mSlots = $('#mSlots');
+    const mName = $('#mName');
+    const mEmail = $('#mEmail');
+    const mNotes = $('#mNotes');
+
+    // populate attendees
+    let attHtml = '';
+    for (let i = 1; i <= 12; i++) attHtml += `<option value="${i}">${i} ${i === 1 ? 'persoon' : 'personen'}</option>`;
+    mAtt.innerHTML = attHtml;
+
+    // populate slot checkboxes
+    D.SLOT_DEFS.forEach(s => {
+      const lbl = document.createElement('label');
+      lbl.innerHTML = `<input type="checkbox" data-slot="${s.key}"> ${s.label}`;
+      mSlots.appendChild(lbl);
+    });
+
+    $('#addManualBtn').addEventListener('click', () => {
+      mBlock.classList.toggle('open');
+      if (mBlock.classList.contains('open')) {
+        mDate.value = D.todayIso();
+      }
+    });
+    $('#mCancel').addEventListener('click', () => {
+      mBlock.classList.remove('open');
+      mName.value = ''; mEmail.value = ''; mNotes.value = '';
+      mSlots.querySelectorAll('input').forEach(i => i.checked = false);
+    });
+    $('#mSave').addEventListener('click', () => {
+      const slots = Array.from(mSlots.querySelectorAll('input:checked')).map(i => i.dataset.slot);
+      if (!mDate.value) { toast('Kies een datum.'); return; }
+      if (slots.length === 0) { toast('Kies minstens één dagdeel.'); return; }
+      if (!mName.value.trim()) { toast('Vul een naam in.'); return; }
+      const att = parseInt(mAtt.value, 10);
+      const slotKeys = slots.map(s => D.slotKey(mDate.value, s));
+      const slotLabels = slots.map(s => D.SLOT_DEFS.find(d => d.key === s).label);
+      const payload = {
+        status: 'confirmed',
+        date: mDate.value,
+        slots: slotKeys,
+        slotLabels,
+        name: mName.value.trim(),
+        email: mEmail.value.trim(),
+        attendees: att,
+        notes: mNotes.value.trim(),
+        manual: true,
+        estimatedTotal: D.priceForSlots(slots)
+      };
+      D.addRequest(payload);
+      slotKeys.forEach(k => unavailable.add(k));
+      persistAvailability();
+      renderCalendar();
+      renderRequests();
+      $('#mCancel').click();
+      toast('Boeking toegevoegd.');
+    });
+
+    // ----- logout -----
+    $('#logoutBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      lock();
+      location.reload();
+    });
+
+    // ----- toast -----
+    let toastT;
+    function toast(msg) {
+      const t = $('#toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastT);
+      toastT = setTimeout(() => t.classList.remove('show'), 2400);
+    }
+
+    // initial render
+    renderRequests();
+  }
+})();
+</script>
+
+</body>
+</html>

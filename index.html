@@ -1932,6 +1932,133 @@
   .policy-body li { margin-bottom: 4px; }
   .policy-body strong { color: var(--black); font-weight: 500; }
   .policy-body a { color: var(--bordeaux); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* =========================================================
+     VERGADERZAAL
+     ========================================================= */
+  .meeting {
+    padding: 130px 40px;
+    background: var(--paper);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .meeting-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .meeting-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .meeting-image {
+    aspect-ratio: 4/5;
+    background: var(--rule-soft);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .meeting-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .meeting-text h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+    line-height: 1.05;
+    color: var(--black);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .meeting-text h2 em { font-style: italic; color: var(--bordeaux); }
+
+  .meeting-text p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-bottom: 20px;
+  }
+
+  .meeting-features {
+    list-style: none;
+    margin: 36px 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+  }
+
+  .meeting-features li {
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: baseline;
+  }
+
+  .meeting-features li .meeting-feature-num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bordeaux);
+    font-size: 1.05rem;
+  }
+
+  .meeting-features li .meeting-feature-label {
+    font-size: 0.92rem;
+    color: var(--soft-black);
+    letter-spacing: 0.01em;
+  }
+
+  .meeting-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bordeaux);
+    color: var(--cream);
+    padding: 16px 30px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    border: 1px solid var(--bordeaux);
+  }
+
+  .meeting-cta:hover { background: var(--bordeaux-deep); }
+
+  .meeting-cta-secondary {
+    margin-left: 20px;
+    color: var(--soft-black);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--bordeaux);
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .meeting-cta-secondary:hover { color: var(--bordeaux); }
+
+  @media (max-width: 900px) {
+    .meeting { padding: 80px 24px; }
+    .meeting-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+    .meeting-image { aspect-ratio: 4/3; }
+    .meeting-features { grid-template-columns: 1fr; gap: 0; }
+    .meeting-cta-secondary { display: block; margin-left: 0; margin-top: 18px; }
+  }
 </style>
 </head>
 <body>
@@ -1947,6 +2074,7 @@
     <li><a href="#huis">Het huis</a></li>
     <li><a href="#praktisch">Praktisch</a></li>
     <li><a href="#ligging">Ligging</a></li>
+    <li><a href="#vergaderzaal">Vergaderzaal</a></li>
     <li><a href="faq.html">FAQ</a></li>
   </ul>
   <div class="lang">
@@ -2250,6 +2378,69 @@
   </div>
 </section>
 
+<!-- ============== VERGADERZAAL ============== -->
+<section class="meeting" id="vergaderzaal">
+  <div class="meeting-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-header-eyebrow">05 / Vergaderzaal</div>
+        <h2 style="font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1.05;color:var(--black);letter-spacing:-0.01em;">Vergaderen in een<br><em>huiselijk kader.</em></h2>
+      </div>
+      <div class="section-header-right">
+        <p>
+          Een ruimte voor maximaal twaalf personen, met toegang tot de keuken en de tuin. Geen
+          steriele vergaderzaal, wel een huis waar mensen graag samenkomen.
+        </p>
+      </div>
+    </div>
+
+    <div class="meeting-grid reveal">
+      <div class="meeting-image">
+        <!-- TODO Jeffrey: vervang door foto van de vergaderzaal zodra beschikbaar -->
+        <img src="images/living-01.jpg" alt="De woonkamer van Georgie, opgesteld als vergaderruimte">
+      </div>
+
+      <div class="meeting-text">
+        <p>
+          Voor een teamdag, een bestuursvergadering, een workshop of een rustige werkdag buiten
+          kantoor. Wij voorzien een scherm met casting (AirPlay en Google Cast), wifi, een whiteboard
+          en koffie. U kookt zelf in onze keuken, of wij regelen broodjes en koffiepauzes.
+        </p>
+
+        <ul class="meeting-features">
+          <li>
+            <span class="meeting-feature-num">i.</span>
+            <span class="meeting-feature-label">Max. 12 personen</span>
+          </li>
+          <li>
+            <span class="meeting-feature-num">ii.</span>
+            <span class="meeting-feature-label">Toegang tot de keuken</span>
+          </li>
+          <li>
+            <span class="meeting-feature-num">iii.</span>
+            <span class="meeting-feature-label">Tuin voor pauzes</span>
+          </li>
+          <li>
+            <span class="meeting-feature-num">iv.</span>
+            <span class="meeting-feature-label">Scherm met casting</span>
+          </li>
+          <li>
+            <span class="meeting-feature-num">v.</span>
+            <span class="meeting-feature-label">Whiteboard &amp; wifi</span>
+          </li>
+          <li>
+            <span class="meeting-feature-num">vi.</span>
+            <span class="meeting-feature-label">Vanaf €150 per dagdeel</span>
+          </li>
+        </ul>
+
+        <a href="vergaderzaal.html" class="meeting-cta">Beschikbaarheid &amp; reserveren</a>
+        <a href="vergaderzaal.html#prijzen" class="meeting-cta-secondary">Bekijk de prijzen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== RESERVE CTA ============== -->
 <section class="reserve-cta" id="boek">
   <img src="images/traphal-02.jpg" alt="" class="reserve-cta-bg">
@@ -2288,6 +2479,7 @@
       <p><a href="#huis">Het huis</a></p>
       <p><a href="#praktisch">Praktisch</a></p>
       <p><a href="#ligging">Ligging</a></p>
+      <p><a href="vergaderzaal.html">Vergaderzaal</a></p>
       <p><a href="goedemorgen.html">Ontbijt</a></p>
       <p><a href="faq.html">FAQ</a></p>
     </div>

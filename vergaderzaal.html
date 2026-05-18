@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<title>Vergaderzaal Georgie Guesthouse Gent — vergaderen op 5 min van Sint-Pieters</title>
+<meta name="description" content="Vergaderzaal in een gerestaureerd herenhuis in Gent. Max. 12 personen, toegang tot keuken en tuin, scherm met casting. Vanaf €150 per dagdeel.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --bordeaux: #5e1e26;
+    --bordeaux-deep: #4a161e;
+    --bordeaux-soft: #6e2a32;
+    --cream: #f5f0e8;
+    --warm-white: #faf7f0;
+    --paper: #f3ede2;
+    --black: #141414;
+    --soft-black: #2a2323;
+    --text-muted: #6a625e;
+    --text-soft: #8a807a;
+    --gold: #a5824b;
+    --rule: #d8cfc3;
+    --rule-soft: #e6ddd1;
+    --green: #5e7a4a;
+    --amber: #b8893a;
+    --red: #9a3c3c;
+
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--soft-black);
+    line-height: 1.6;
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 40px;
+    align-items: center;
+    background: rgba(250, 247, 240, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(216, 207, 195, 0.4);
+  }
+
+  nav .brand {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: 0.01em;
+    color: var(--black);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+
+  nav .brand .brand-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    justify-self: start;
+    margin-left: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--soft-black);
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--bordeaux); }
+  .nav-links a.active { color: var(--bordeaux); font-weight: 500; }
+
+  .lang {
+    display: flex;
+    gap: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .lang a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+  }
+  .lang a.active { color: var(--bordeaux); font-weight: 500; }
+
+  .book-button {
+    background: var(--bordeaux);
+    color: var(--cream) !important;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    border: 1px solid var(--bordeaux);
+  }
+  .book-button:hover { background: var(--bordeaux-deep); }
+
+  /* ===== HERO ===== */
+  .page-hero {
+    padding: 160px 40px 80px;
+    background: var(--bordeaux);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(255, 255, 255, 0.06), transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(0, 0, 0, 0.3), transparent 50%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+  .page-hero p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    max-width: 660px;
+    line-height: 1.6;
+    color: rgba(245, 240, 232, 0.9);
+  }
+
+  /* ===== SECTIONS ===== */
+  section.block {
+    padding: 100px 40px;
+  }
+  section.block + section.block { padding-top: 0; }
+  .block-inner { max-width: 1300px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 24px;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 30px; height: 1px;
+    background: var(--bordeaux);
+    display: inline-block;
+  }
+
+  h2.block-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+    line-height: 1.05;
+    color: var(--black);
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+  }
+  h2.block-title em { font-style: italic; color: var(--bordeaux); }
+
+  /* ===== INTRO (2-col) ===== */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro-image {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--rule-soft);
+  }
+  .intro-image img { width: 100%; height: 100%; object-fit: cover; }
+  .intro-text p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--soft-black);
+    margin-bottom: 20px;
+  }
+  .intro-features {
+    list-style: none;
+    margin-top: 36px;
+  }
+  .intro-features li {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .intro-features li:last-child { border-bottom: 1px solid var(--rule); }
+  .intro-features .num {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--bordeaux);
+    font-size: 1.1rem;
+  }
+  .intro-features .label {
+    font-size: 0.95rem;
+    color: var(--soft-black);
+  }
+  .intro-features .label strong {
+    font-weight: 500;
+    color: var(--black);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .intro-features .label .desc {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+  }
+
+  /* ===== PRICES ===== */
+  .prices {
+    background: var(--paper);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule-soft);
+    margin-top: 20px;
+  }
+  .price-card {
+    background: var(--paper);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .price-card .name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--black);
+    font-style: italic;
+  }
+  .price-card .time {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .price-card .amount {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--bordeaux);
+    margin-top: 12px;
+    line-height: 1;
+  }
+  .price-card .note {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-top: auto;
+  }
+
+  .addons {
+    margin-top: 60px;
+  }
+  .addons h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--black);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .addon-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .addon-list .item {
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+  }
+  .addon-list .item .name {
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .addon-list .item .price {
+    color: var(--bordeaux);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .addon-list .item .desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+
+  /* ===== CALENDAR ===== */
+  .booker {
+    background: var(--warm-white);
+  }
+  .booker-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .booker-left {
+    background: var(--paper);
+    padding: 40px;
+    border: 1px solid var(--rule);
+  }
+  .booker-right {
+    background: var(--cream);
+    padding: 40px;
+    border: 1px solid var(--rule);
+    position: sticky;
+    top: 100px;
+  }
+
+  .cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .cal-month-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--black);
+  }
+  .cal-nav {
+    display: flex;
+    gap: 8px;
+  }
+  .cal-nav button {
+    background: transparent;
+    border: 1px solid var(--rule);
+    width: 36px; height: 36px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--soft-black);
+    transition: all 0.2s ease;
+    font-family: var(--sans);
+  }
+  .cal-nav button:hover {
+    border-color: var(--bordeaux);
+    color: var(--bordeaux);
+  }
+  .cal-nav button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-dow {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 8px 0;
+  }
+  .cal-cell {
+    aspect-ratio: 1/1;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+    font-family: var(--sans);
+    color: var(--soft-black);
+    padding: 4px;
+    position: relative;
+  }
+  .cal-cell .day-num {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .cal-cell .dots {
+    display: flex;
+    gap: 3px;
+  }
+  .cal-cell .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .cal-cell .dot.booked { background: var(--rule); }
+  .cal-cell.past { opacity: 0.3; cursor: not-allowed; }
+  .cal-cell.empty { cursor: default; }
+  .cal-cell.empty .day-num,
+  .cal-cell.empty .dots { visibility: hidden; }
+  .cal-cell:not(.past):not(.empty):hover {
+    background: var(--cream);
+    border-color: var(--rule);
+  }
+  .cal-cell.selected {
+    background: var(--bordeaux);
+    color: var(--cream);
+    border-color: var(--bordeaux);
+  }
+  .cal-cell.selected .dot { background: var(--gold); }
+  .cal-cell.selected .dot.booked { background: rgba(245, 240, 232, 0.4); }
+  .cal-cell.fully-booked {
+    cursor: not-allowed;
+  }
+  .cal-cell.fully-booked .day-num {
+    text-decoration: line-through;
+    color: var(--text-soft);
+  }
+  .cal-cell.today .day-num::after {
+    content: "";
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .legend span::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .legend span.booked::before { background: var(--rule); }
+  .legend span.past::before { background: var(--rule-soft); }
+
+  /* ===== BOOKER FORM ===== */
+  .selected-day {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .selected-day-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .slots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .slot {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: var(--sans);
+  }
+  .slot input { margin: 0; accent-color: var(--bordeaux); cursor: pointer; }
+  .slot:hover { border-color: var(--bordeaux); }
+  .slot.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: var(--paper);
+  }
+  .slot.disabled:hover { border-color: var(--rule); }
+  .slot .slot-name {
+    font-weight: 500;
+    color: var(--black);
+  }
+  .slot .slot-time {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+  .slot .slot-price {
+    color: var(--bordeaux);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+  .slot.checked { border-color: var(--bordeaux); background: var(--paper); }
+  .slot-status {
+    font-size: 0.74rem;
+    color: var(--text-soft);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* form fields */
+  .form-section {
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .form-section h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--black);
+    margin-bottom: 18px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .form-row.single { grid-template-columns: 1fr; }
+  label.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  label.field span {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  input.txt, textarea.txt, select.txt {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    padding: 12px 14px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--soft-black);
+    width: 100%;
+    transition: border-color 0.2s ease;
+  }
+  input.txt:focus, textarea.txt:focus, select.txt:focus {
+    outline: none;
+    border-color: var(--bordeaux);
+  }
+  textarea.txt { resize: vertical; min-height: 80px; font-family: var(--sans); }
+
+  .addon-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .addon-check {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    font-size: 0.92rem;
+  }
+  .addon-check:hover { border-color: var(--bordeaux); }
+  .addon-check input { accent-color: var(--bordeaux); cursor: pointer; }
+  .addon-check .addon-price {
+    color: var(--bordeaux);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  /* total + submit */
+  .totals {
+    margin-top: 28px;
+    padding: 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .totals-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    font-size: 0.92rem;
+    color: var(--soft-black);
+  }
+  .totals-line.grand {
+    border-top: 1px solid var(--rule);
+    margin-top: 10px;
+    padding-top: 14px;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--black);
+  }
+  .totals-line.grand .amount {
+    color: var(--bordeaux);
+    font-style: italic;
+  }
+  .totals-empty {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  button.submit {
+    width: 100%;
+    background: var(--bordeaux);
+    color: var(--cream);
+    border: 1px solid var(--bordeaux);
+    padding: 16px 24px;
+    margin-top: 20px;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: var(--sans);
+  }
+  button.submit:hover:not(:disabled) { background: var(--bordeaux-deep); }
+  button.submit:disabled {
+    background: var(--rule);
+    border-color: var(--rule);
+    color: var(--text-soft);
+    cursor: not-allowed;
+  }
+
+  .submit-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .success-msg {
+    background: var(--paper);
+    border-left: 3px solid var(--green);
+    padding: 24px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--soft-black);
+    line-height: 1.6;
+  }
+  .success-msg strong { color: var(--black); display: block; margin-bottom: 6px; font-weight: 500; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--bordeaux-deep);
+    color: var(--cream);
+    padding: 80px 40px 40px;
+  }
+  .footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+  .footer-brand .wordmark-small {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+  .footer-brand .descriptor-small {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.6);
+    margin-bottom: 18px;
+  }
+  .footer-brand p {
+    font-size: 0.92rem;
+    color: rgba(245, 240, 232, 0.8);
+    line-height: 1.6;
+    max-width: 340px;
+  }
+  .footer-col h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+  .footer-col p {
+    font-size: 0.9rem;
+    color: rgba(245, 240, 232, 0.85);
+    margin-bottom: 6px;
+  }
+  .footer-col a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(245, 240, 232, 0.12);
+    padding-top: 24px;
+    font-size: 0.78rem;
+    color: rgba(245, 240, 232, 0.5);
+    text-align: center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) {
+    .booker-grid { grid-template-columns: 1fr; gap: 30px; }
+    .booker-right { position: static; }
+    .price-grid { grid-template-columns: 1fr 1fr; }
+    .addon-list { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; grid-template-columns: 1fr auto auto; gap: 16px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 130px 24px 70px; }
+    section.block { padding: 70px 24px; }
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .price-grid { grid-template-columns: 1fr; }
+    .addon-list { grid-template-columns: 1fr; }
+    .booker-left, .booker-right { padding: 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <span>Georgie</span>
+    <span class="brand-sub">guesthouse</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#kamers">Kamers</a></li>
+    <li><a href="index.html#huis">Het huis</a></li>
+    <li><a href="index.html#praktisch">Praktisch</a></li>
+    <li><a href="index.html#ligging">Ligging</a></li>
+    <li><a href="vergaderzaal.html" class="active">Vergaderzaal</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <div class="lang">
+    <a href="#" class="active">nl</a>
+    <span>/</span>
+    <a href="#">fr</a>
+    <span>/</span>
+    <a href="#">en</a>
+  </div>
+  <a href="#reserveer" class="book-button">Reserveer</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Vergaderzaal — Georgie Guesthouse</div>
+    <h1>Vergaderen in een<br><em>herenhuis.</em></h1>
+    <p>
+      Een ruimte voor maximaal twaalf personen, met toegang tot de keuken en de tuin. Geen
+      steriele vergaderzaal, wel een huis waar mensen graag samenkomen. Op vijf minuten van
+      Sint-Pieters, buiten de LEZ.
+    </p>
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="block">
+  <div class="block-inner">
+    <div class="eyebrow">01 / Wat het is</div>
+    <h2 class="block-title">Een werkdag<br><em>met karakter.</em></h2>
+
+    <div class="intro-grid">
+      <div class="intro-image">
+        <!-- TODO Jeffrey: vervang door foto van de vergaderzaal zodra beschikbaar -->
+        <img src="images/living-01.jpg" alt="De woonkamer van Georgie, opgesteld als vergaderruimte">
+      </div>
+      <div class="intro-text">
+        <p>
+          De vergaderzaal van Georgie zit in de voormalige eetkamer van het herenhuis. Hoge plafonds,
+          stucwerk, een open haard. Wij plaatsen een tafel voor maximaal twaalf personen, een scherm
+          met casting, een whiteboard en een carafe water.
+        </p>
+        <p>
+          De keuken staat open: u zet zelf koffie, of u geeft door dat u een lunch wil en wij regelen
+          dat. Voor pauzes kan u in de tuin. Geen receptie, geen wachtmuziek, geen badge.
+        </p>
+
+        <ul class="intro-features">
+          <li>
+            <span class="num">i.</span>
+            <span class="label">
+              <strong>Capaciteit</strong>
+              <span class="desc">Tot 12 personen rond één tafel. 16 in u-vorm zonder tafel.</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">ii.</span>
+            <span class="label">
+              <strong>Techniek</strong>
+              <span class="desc">Scherm met AirPlay en Google Cast, glasvezel-wifi, whiteboard.</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">iii.</span>
+            <span class="label">
+              <strong>Catering</strong>
+              <span class="desc">Volledig uitgeruste keuken. Koffie, lunch en apero op aanvraag.</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">iv.</span>
+            <span class="label">
+              <strong>Buiten</strong>
+              <span class="desc">Tuin voor pauzes en informele gesprekken.</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">v.</span>
+            <span class="label">
+              <strong>Overnachten</strong>
+              <span class="desc">Combineer met een van onze vijf kamers voor een tweedaagse.</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICES ===== -->
+<section class="block prices" id="prijzen">
+  <div class="block-inner">
+    <div class="eyebrow">02 / Prijzen</div>
+    <h2 class="block-title">Eerlijk en<br><em>per dagdeel.</em></h2>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="name">Voormiddag</div>
+        <div class="time">09:00 — 13:00</div>
+        <div class="amount">€150</div>
+        <div class="note">incl. koffie bij aankomst</div>
+      </div>
+      <div class="price-card">
+        <div class="name">Namiddag</div>
+        <div class="time">13:30 — 17:30</div>
+        <div class="amount">€150</div>
+        <div class="note">incl. koffie bij aankomst</div>
+      </div>
+      <div class="price-card">
+        <div class="name">Avond</div>
+        <div class="time">18:00 — 22:00</div>
+        <div class="amount">€175</div>
+        <div class="note">incl. water &amp; thee</div>
+      </div>
+      <div class="price-card">
+        <div class="name">Volle dag</div>
+        <div class="time">09:00 — 17:30</div>
+        <div class="amount">€275</div>
+        <div class="note">voor- en namiddag samen</div>
+      </div>
+    </div>
+
+    <div class="addons">
+      <h3>Aan te vullen met</h3>
+      <div class="addon-list">
+        <div class="item">
+          <div class="name">Koffie, thee &amp; water</div>
+          <div class="price">€4 per persoon</div>
+          <div class="desc">Doorlopend tijdens uw verblijf.</div>
+        </div>
+        <div class="item">
+          <div class="name">Lunch — broodjes &amp; soep</div>
+          <div class="price">€18 per persoon</div>
+          <div class="desc">Verse soep en assortiment broodjes uit Gent.</div>
+        </div>
+        <div class="item">
+          <div class="name">Apero — cava &amp; hapjes</div>
+          <div class="price">€15 per persoon</div>
+          <div class="desc">Om de dag in stijl af te sluiten.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 0.9rem; color: var(--text-muted); max-width: 740px; line-height: 1.7;">
+      Prijzen zijn excl. btw (21%) en gelden voor bezetting in het herenhuis te Gent. Voor terugkerende
+      boekingen of meerdaagse formules met overnachting maken we graag een offerte op maat.
+    </p>
+  </div>
+</section>
+
+<!-- ===== BOOKER ===== -->
+<section class="block booker" id="reserveer">
+  <div class="block-inner">
+    <div class="eyebrow">03 / Reserveren</div>
+    <h2 class="block-title">Kies een datum,<br><em>kies een dagdeel.</em></h2>
+    <p style="font-family: var(--serif); font-size: 1.15rem; max-width: 720px; line-height: 1.7; color: var(--soft-black); margin-bottom: 50px;">
+      U kiest hieronder een dag en één of meerdere dagdelen. Wij krijgen uw aanvraag binnen en bevestigen
+      meestal binnen het uur, ten laatste de volgende ochtend.
+    </p>
+
+    <div class="booker-grid">
+
+      <!-- Calendar -->
+      <div class="booker-left">
+        <div class="cal-header">
+          <div class="cal-month-label" id="calMonthLabel">—</div>
+          <div class="cal-nav">
+            <button type="button" id="calPrev" aria-label="Vorige maand">‹</button>
+            <button type="button" id="calNext" aria-label="Volgende maand">›</button>
+          </div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="legend">
+          <span>beschikbaar</span>
+          <span class="booked">geboekt</span>
+          <span class="past">voorbij</span>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="booker-right">
+        <div id="bookerContent">
+          <div class="selected-day" id="selectedDay">Kies een dag in de kalender</div>
+          <div class="selected-day-sub" id="selectedDaySub">Klik een dag aan om de beschikbare dagdelen te zien.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark-small">Georgie</div>
+      <div class="descriptor-small">guesthouse, Gent</div>
+      <p>Een herenhuis op 5 minuten van Sint-Pieters. Self check-in, altijd bereikbaar, parkeren buiten de LEZ.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Adres</h4>
+      <p>Koningin Astridlaan 159</p>
+      <p>9000 Gent / België</p>
+      <br>
+      <p><a href="mailto:info@georgie-gent.be">info@georgie-gent.be</a></p>
+      <p><a href="tel:+32497161274">+32 497 16 12 74</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Hotel</h4>
+      <p><a href="index.html#kamers">Kamers</a></p>
+      <p><a href="index.html#huis">Het huis</a></p>
+      <p><a href="index.html#praktisch">Praktisch</a></p>
+      <p><a href="vergaderzaal.html">Vergaderzaal</a></p>
+      <p><a href="faq.html">FAQ</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <p><a href="voorwaarden.html">Annuleringsbeleid</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © Georgie Guesthouse Gent
+  </div>
+</footer>
+
+<script src="vergaderzaal/vergaderzaal-data.js"></script>
+<script>
+(function () {
+  const D = window.VergaderzaalData;
+  const ADMIN_EMAIL = 'info@georgie-gent.be';
+
+  // ----- state -----
+  let viewYear, viewMonth; // month being shown in calendar
+  let selectedDate = null; // 'YYYY-MM-DD'
+  let unavailable = new Set();
+  let submitted = false;
+
+  // ----- elements -----
+  const elGrid = document.getElementById('calGrid');
+  const elLabel = document.getElementById('calMonthLabel');
+  const elPrev = document.getElementById('calPrev');
+  const elNext = document.getElementById('calNext');
+  const elBooker = document.getElementById('bookerContent');
+
+  const MONTHS_NL = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  const DOW_NL = ['ma','di','wo','do','vr','za','zo'];
+  const DAYS_NL = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+
+  // ----- init -----
+  const now = new Date();
+  viewYear = now.getFullYear();
+  viewMonth = now.getMonth();
+
+  D.fetchPublicAvailability().then(list => {
+    unavailable = new Set(list);
+    renderCalendar();
+  });
+
+  elPrev.addEventListener('click', () => {
+    const today = new Date();
+    const proposed = new Date(viewYear, viewMonth - 1, 1);
+    const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    if (proposed < minMonth) return;
+    viewMonth--;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    renderCalendar();
+  });
+  elNext.addEventListener('click', () => {
+    viewMonth++;
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendar();
+  });
+
+  function renderCalendar() {
+    elLabel.textContent = MONTHS_NL[viewMonth] + ' ' + viewYear;
+
+    // disable prev if we're at current month
+    const today = new Date(); today.setHours(0,0,0,0);
+    const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    const curMonth = new Date(viewYear, viewMonth, 1);
+    elPrev.disabled = curMonth <= minMonth;
+
+    elGrid.innerHTML = '';
+    // dow headers
+    for (let i = 0; i < 7; i++) {
+      const h = document.createElement('div');
+      h.className = 'cal-dow';
+      h.textContent = DOW_NL[i];
+      elGrid.appendChild(h);
+    }
+    // figure first cell offset (Monday-first)
+    const firstOfMonth = new Date(viewYear, viewMonth, 1);
+    let offset = firstOfMonth.getDay() - 1; // 0=Sun → -1
+    if (offset < 0) offset = 6;
+    for (let i = 0; i < offset; i++) {
+      const c = document.createElement('div');
+      c.className = 'cal-cell empty';
+      elGrid.appendChild(c);
+    }
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(viewYear, viewMonth, d);
+      const iso = D.isoDate(date);
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'cal-cell';
+      cell.dataset.date = iso;
+
+      const isPast = date < today;
+      if (isPast) cell.classList.add('past');
+      if (iso === D.todayIso()) cell.classList.add('today');
+
+      const slotStatuses = D.SLOT_DEFS.map(s => unavailable.has(D.slotKey(iso, s.key)));
+      const allBooked = slotStatuses.every(Boolean);
+      if (allBooked && !isPast) cell.classList.add('fully-booked');
+
+      const num = document.createElement('span');
+      num.className = 'day-num';
+      num.textContent = d;
+      cell.appendChild(num);
+
+      const dots = document.createElement('span');
+      dots.className = 'dots';
+      slotStatuses.forEach(booked => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (booked ? ' booked' : '');
+        dots.appendChild(dot);
+      });
+      cell.appendChild(dots);
+
+      if (selectedDate === iso) cell.classList.add('selected');
+
+      if (!isPast && !allBooked) {
+        cell.addEventListener('click', () => {
+          selectedDate = iso;
+          submitted = false;
+          renderCalendar();
+          renderBooker();
+        });
+      } else if (!isPast && allBooked) {
+        cell.title = 'Volledig geboekt';
+      }
+      elGrid.appendChild(cell);
+    }
+  }
+
+  function renderBooker() {
+    if (!selectedDate) {
+      elBooker.innerHTML = `
+        <div class="selected-day">Kies een dag in de kalender</div>
+        <div class="selected-day-sub">Klik een dag aan om de beschikbare dagdelen te zien.</div>
+      `;
+      return;
+    }
+    const [y, m, d] = selectedDate.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    const dayName = DAYS_NL[dateObj.getDay()];
+    const dayLabel = dayName + ' ' + d + ' ' + MONTHS_NL[m - 1] + ' ' + y;
+
+    elBooker.innerHTML = `
+      <div class="selected-day">${dayLabel}</div>
+      <div class="selected-day-sub">Kies één of meerdere dagdelen. Voormiddag + namiddag is voordeliger dan los.</div>
+
+      <div class="slots" id="slotsList"></div>
+
+      <div class="form-section">
+        <h4>Uw gegevens</h4>
+        <div class="form-row">
+          <label class="field"><span>Naam</span><input type="text" class="txt" id="fName" required></label>
+          <label class="field"><span>Organisatie</span><input type="text" class="txt" id="fOrg"></label>
+        </div>
+        <div class="form-row">
+          <label class="field"><span>E-mail</span><input type="email" class="txt" id="fEmail" required></label>
+          <label class="field"><span>Telefoon</span><input type="tel" class="txt" id="fPhone"></label>
+        </div>
+        <div class="form-row">
+          <label class="field"><span>Aantal personen</span>
+            <select class="txt" id="fAttendees">
+              ${Array.from({length: 12}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+            </select>
+          </label>
+          <label class="field"><span>Soort meeting</span>
+            <select class="txt" id="fKind">
+              <option value="">— kies —</option>
+              <option>Bestuursvergadering</option>
+              <option>Teamdag</option>
+              <option>Workshop / training</option>
+              <option>Klantmeeting</option>
+              <option>Werkdag buiten kantoor</option>
+              <option>Andere</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h4>Extra's</h4>
+        <div class="addon-checks" id="addonChecks"></div>
+      </div>
+
+      <div class="form-section">
+        <h4>Opmerkingen</h4>
+        <div class="form-row single">
+          <label class="field">
+            <span>Eventuele wensen, dieetwensen, allergieën</span>
+            <textarea class="txt" id="fNotes" rows="3"></textarea>
+          </label>
+        </div>
+      </div>
+
+      <div class="totals" id="totals"></div>
+      <button class="submit" id="submitBtn" disabled>Aanvraag versturen</button>
+      <div class="submit-hint">
+        We nemen meestal binnen het uur contact op om uw boeking te bevestigen.
+        Uw e-mailprogramma zal openen om de aanvraag te versturen.
+      </div>
+
+      <div id="successContainer"></div>
+    `;
+
+    // populate slots
+    const slotsList = document.getElementById('slotsList');
+    D.SLOT_DEFS.forEach(s => {
+      const key = D.slotKey(selectedDate, s.key);
+      const booked = unavailable.has(key);
+      const price = D.PRICES[s.key];
+      const row = document.createElement('label');
+      row.className = 'slot' + (booked ? ' disabled' : '');
+      row.innerHTML = `
+        <input type="checkbox" data-slot="${s.key}" ${booked ? 'disabled' : ''}>
+        <div>
+          <div class="slot-name">${s.label}</div>
+          <span class="slot-time">${s.time}</span>
+        </div>
+        ${booked
+          ? '<span class="slot-status">geboekt</span>'
+          : '<span class="slot-price">' + D.formatPrice(price) + '</span>'}
+      `;
+      slotsList.appendChild(row);
+    });
+
+    // populate addons
+    const ac = document.getElementById('addonChecks');
+    D.ADDONS.forEach(a => {
+      const row = document.createElement('label');
+      row.className = 'addon-check';
+      row.innerHTML = `
+        <input type="checkbox" data-addon="${a.key}">
+        <div>
+          <strong>${a.label}</strong>
+          <span style="color: var(--text-muted); font-size: 0.84rem; display:block; margin-top:2px;">${a.desc}</span>
+        </div>
+        <span class="addon-price">€${a.pricePerPerson} / pers.</span>
+      `;
+      ac.appendChild(row);
+    });
+
+    // event wiring
+    elBooker.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('change', updateTotals);
+      el.addEventListener('input', updateTotals);
+    });
+    slotsList.addEventListener('change', e => {
+      const lbl = e.target.closest('.slot');
+      if (lbl) lbl.classList.toggle('checked', e.target.checked);
+    });
+    document.getElementById('submitBtn').addEventListener('click', handleSubmit);
+
+    updateTotals();
+  }
+
+  function readSelection() {
+    const slots = Array.from(document.querySelectorAll('#slotsList input:checked')).map(el => el.dataset.slot);
+    const addons = Array.from(document.querySelectorAll('#addonChecks input:checked')).map(el => el.dataset.addon);
+    const name = (document.getElementById('fName').value || '').trim();
+    const email = (document.getElementById('fEmail').value || '').trim();
+    const phone = (document.getElementById('fPhone').value || '').trim();
+    const org = (document.getElementById('fOrg').value || '').trim();
+    const attendees = parseInt(document.getElementById('fAttendees').value, 10);
+    const kind = document.getElementById('fKind').value;
+    const notes = (document.getElementById('fNotes').value || '').trim();
+    return { slots, addons, name, email, phone, org, attendees, kind, notes };
+  }
+
+  function updateTotals() {
+    const sel = readSelection();
+    const totals = document.getElementById('totals');
+    if (sel.slots.length === 0) {
+      totals.innerHTML = '<div class="totals-empty">Selecteer minstens één dagdeel om een prijs te zien.</div>';
+      document.getElementById('submitBtn').disabled = true;
+      return;
+    }
+    const slotPrice = D.priceForSlots(sel.slots);
+    const slotLabels = sel.slots.map(s => D.SLOT_DEFS.find(d => d.key === s).label).join(' + ');
+    let html = `
+      <div class="totals-line">
+        <span>${slotLabels}</span>
+        <span>${D.formatPrice(slotPrice)}</span>
+      </div>
+    `;
+    let addonTotal = 0;
+    sel.addons.forEach(key => {
+      const a = D.ADDONS.find(x => x.key === key);
+      const cost = a.pricePerPerson * sel.attendees;
+      addonTotal += cost;
+      html += `
+        <div class="totals-line">
+          <span>${a.label} × ${sel.attendees}</span>
+          <span>${D.formatPrice(cost)}</span>
+        </div>
+      `;
+    });
+    const grand = slotPrice + addonTotal;
+    html += `
+      <div class="totals-line grand">
+        <span>Totaal (excl. btw)</span>
+        <span class="amount">${D.formatPrice(grand)}</span>
+      </div>
+    `;
+    totals.innerHTML = html;
+
+    // enable submit if name + email + slots present
+    const okBtn = sel.slots.length > 0 && sel.name && /\S+@\S+\.\S+/.test(sel.email);
+    document.getElementById('submitBtn').disabled = !okBtn;
+  }
+
+  function handleSubmit() {
+    const sel = readSelection();
+    if (sel.slots.length === 0 || !sel.name || !sel.email) return;
+
+    const total = D.priceForSlots(sel.slots) + sel.addons.reduce((sum, k) => {
+      const a = D.ADDONS.find(x => x.key === k);
+      return sum + a.pricePerPerson * sel.attendees;
+    }, 0);
+
+    const slotKeys = sel.slots.map(s => D.slotKey(selectedDate, s));
+    const reqPayload = {
+      date: selectedDate,
+      slots: slotKeys,
+      slotLabels: sel.slots.map(s => D.SLOT_DEFS.find(d => d.key === s).label),
+      name: sel.name,
+      email: sel.email,
+      phone: sel.phone,
+      organisation: sel.org,
+      attendees: sel.attendees,
+      kind: sel.kind,
+      addons: sel.addons,
+      notes: sel.notes,
+      estimatedTotal: total
+    };
+
+    // Save locally so the visitor's own browser has a copy (lightweight handoff).
+    try { D.addRequest(reqPayload); } catch (e) { /* localStorage disabled is fine */ }
+
+    // Build a mailto so the request reaches Georgie.
+    const dateNL = (() => {
+      const [y, m, d] = selectedDate.split('-').map(Number);
+      const date = new Date(y, m - 1, d);
+      return DAYS_NL[date.getDay()] + ' ' + d + ' ' + MONTHS_NL[m - 1] + ' ' + y;
+    })();
+    const subject = 'Aanvraag vergaderzaal — ' + dateNL + ' (' + sel.name + ')';
+    const lines = [
+      'Hallo,',
+      '',
+      'Graag wil ik de vergaderzaal reserveren.',
+      '',
+      'Datum: ' + dateNL,
+      'Dagdelen: ' + reqPayload.slotLabels.join(', '),
+      'Aantal personen: ' + sel.attendees,
+      sel.kind ? ('Soort meeting: ' + sel.kind) : null,
+      sel.addons.length ? ('Extra\'s: ' + sel.addons.map(k => D.ADDONS.find(a => a.key === k).label).join(', ')) : null,
+      '',
+      'Naam: ' + sel.name,
+      sel.org ? ('Organisatie: ' + sel.org) : null,
+      'E-mail: ' + sel.email,
+      sel.phone ? ('Telefoon: ' + sel.phone) : null,
+      '',
+      sel.notes ? ('Opmerkingen: ' + sel.notes) : null,
+      '',
+      'Geschatte prijs (excl. btw): ' + D.formatPrice(total),
+      '',
+      'Met vriendelijke groet,',
+      sel.name
+    ].filter(l => l !== null);
+    const body = lines.join('\n');
+    const mailto = 'mailto:' + ADMIN_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    // Open mail client
+    window.location.href = mailto;
+
+    // Show in-page confirmation
+    submitted = true;
+    const sc = document.getElementById('successContainer');
+    sc.innerHTML = `
+      <div class="success-msg">
+        <strong>Bijna klaar.</strong>
+        We hebben uw e-mailprogramma geopend met de aanvraag.
+        Verstuur die mail om de boeking definitief aan te vragen.
+        Lukt dit niet, mail dan rechtstreeks naar
+        <a href="mailto:${ADMIN_EMAIL}" style="color: var(--bordeaux); text-decoration: underline;">${ADMIN_EMAIL}</a>
+        of bel <a href="tel:+32497161274" style="color: var(--bordeaux); text-decoration: underline;">+32 497 16 12 74</a>.
+      </div>
+    `;
+    document.getElementById('submitBtn').disabled = true;
+  }
+})();
+</script>
+
+</body>
+</html>
